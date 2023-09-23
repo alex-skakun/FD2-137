@@ -44,7 +44,7 @@ do {
     sex = prompt('Укажите Ваш пол буквами "М" или "Ж"')
 } while (!sex || (sex.toLowerCase() !== 'м' && sex.toLowerCase() !== 'ж'));
 
-if (sex === 'м'){
+if (sex.toLowerCase() === 'м'){
     if (age >= PENSIONMALE){
         alert('ФИО: ' + secondName + ' ' + firstName + ' ' + fathersName +
             '\nВозраст: ' + age +
