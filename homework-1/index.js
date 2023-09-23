@@ -3,6 +3,7 @@ let firstName;
 let fathersName;
 let age;
 let sex;
+let pension;
 const MINAGE = 0;
 const MAXAGE = 150;
 const PENSIONMALE = 63;
@@ -46,27 +47,21 @@ do {
 
 if (sex.toLowerCase() === 'м'){
     if (age >= PENSIONMALE){
-        alert('ФИО: ' + secondName + ' ' + firstName + ' ' + fathersName +
-            '\nВозраст: ' + age +
-            '\nПол: М' +
-            '\nНа пенсии: Да')
+        pension = 'Да';
     } else {
-        alert('ФИО: ' + secondName + ' ' + firstName + ' ' + fathersName +
-            '\nВозраст: ' + age +
-            '\nПол: М' +
-            '\nНа пенсии: Нет')
+        pension = 'Нет';
     }
 } else {
     if (age >= PENSIONFEMALE) {
-        alert('ФИО: ' + secondName + ' ' + firstName + ' ' + fathersName +
-            '\nВозраст: ' + age +
-            '\nПол: Ж' +
-            '\nНа пенсии: Да')
+        pension = 'Да';
     }
     else {
-        alert('ФИО: ' + secondName + ' ' + firstName + ' ' + fathersName +
-            '\nВозраст: ' + age +
-            '\nПол: Ж' +
-            '\nНа пенсии: Нет')
+        pension = 'Нет';
     }
 }
+
+alert (
+    `ФИО: ${secondName} ${firstName} ${fathersName}
+Возраст: ${age}
+Пол: ${sex}
+На пенсии: ${pension}`);
