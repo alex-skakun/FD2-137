@@ -10,21 +10,21 @@ do {
   firstName = prompt("Enter your first name");
 } while (
   !firstName ||
-  (firstName ? firstName.charAt(0) === " " : (firstName = ""))
+  (firstName.charAt(0) === " ")
 );
 
 do {
   lastName = prompt("Enter last name");
 } while (
   !lastName ||
-  (firstName ? firstName.charAt(0) === " " : (firstName = ""))
+  (lastName.charAt(0) === " ")
 );
 
 do {
   middleName = prompt("Enter your middle name");
 } while (
   !middleName ||
-  (firstName ? firstName.charAt(0) === " " : (firstName = ""))
+  (middleName.charAt(0) === " ")
 );
 
 do {
