@@ -25,7 +25,7 @@ do {
 
   do {
     userInput = prompt("Enter your age");
-  } while (!userInput);
+  } while (!userInput || userInput.charAt(0) === " ");
 
   let normalizedUserInput = "";
 
