@@ -21,15 +21,15 @@ do {
 } while (!middleName || middleName.charAt(0) === " ");
 
 do {
-  let userAgeInput;
+  let userInput;
 
   do {
-    userAgeInput = prompt("Enter your age");
-  } while (!userAgeInput);
+    userInput = prompt("Enter your age");
+  } while (!userInput);
 
   let normalizedUserInput = "";
 
-  for (const char of userAgeInput) {
+  for (const char of userInput) {
     if (char === ",") {
       normalizedUserInput += ".";
     } else {
