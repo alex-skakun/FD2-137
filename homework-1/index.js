@@ -24,7 +24,7 @@ do {
   let userAgeInput;
 
   do {
-    userAgeInput = prompt("Введите Ваш возраст:");
+    userAgeInput = prompt("Enter your age");
   } while (!userAgeInput);
 
   let normalizedUserInput = "";
