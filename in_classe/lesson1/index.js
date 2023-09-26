@@ -31,7 +31,7 @@ do {
 
 do {
   const userInput = prompt("enter your age");
-  userInput ? Number(userInput) : NaN;
+  age = userInput ? Number(userInput) : NaN;
 
   normalizedUserInput = userInput.replace(/,/, ".");
 

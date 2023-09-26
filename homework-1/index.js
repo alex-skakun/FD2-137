@@ -3,9 +3,10 @@ const MIN_AGE = 0;
 let firstName;
 let lastName;
 let middleName;
-let normalizedUserInput = "";
 let gender;
 let pension;
+let age;
+
 
 do {
   firstName = prompt("Enter your first name");
@@ -20,21 +21,24 @@ do {
 } while (!middleName || middleName.charAt(0) === " ");
 
 do {
-  const userInput = prompt("enter your age");
-  userInput ? Number(userInput) : NaN;
+  let userAgeInput;
 
-  for (const char of userInput) {
+  do {
+    userAgeInput = prompt("Введите Ваш возраст:");
+  } while (!userAgeInput);
+
+  let normalizedUserInput = "";
+
+  for (const char of userAgeInput) {
     if (char === ",") {
       normalizedUserInput += ".";
     } else {
       normalizedUserInput += char;
     }
   }
-} while (
-  !isFinite(normalizedUserInput) ||
-  normalizedUserInput <= MIN_AGE ||
-  normalizedUserInput >= MAX_AGE
-);
+
+  age = Number(normalizedUserInput);
+} while (!isFinite(age) || age < MIN_AGE || age > MAX_AGE);
 
 do {
   gender = prompt("Enter your gender", "м");
@@ -48,14 +52,14 @@ do {
 );
 
 pension =
-  ((gender === "М" || gender === "м") && normalizedUserInput < 63) ||
-  ((gender === "Ж" || gender === "ж") && normalizedUserInput < 58)
-    ? pension = "Нет"
-    : pension = "Да";
+  ((gender === "М" || gender === "м") && age < 63) ||
+  ((gender === "Ж" || gender === "ж") && age < 58)
+    ? (pension = "Нет")
+    : (pension = "Да");
 
 let fio = `
  ФИО: ${lastName} ${firstName} ${middleName};
- Возраст: ${normalizedUserInput};
+ Возраст: ${age};
  Пол: ${gender};
  На пенсии: ${pension}`;
 
