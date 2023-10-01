@@ -1,7 +1,7 @@
 let string1 = prompt('Введите строку 1');
 let string2 = prompt('Введите строку 2');
 
-function withDuplicateSymbols(stringToCheck, stringToCheckWith) {
+function withDuplicateSymbols(string1, string2) {
     if (typeof string1 !== 'string' || typeof string2 !== 'string') {
         return '';
     }
@@ -18,13 +18,13 @@ function withDuplicateSymbols(stringToCheck, stringToCheckWith) {
 
     if (flag === 'true') {
         for (i = 0; i < string2.length; i++) {
-            if (string1.find(string2[i])) {
+            if (string1.includes(string2[i])) {
                 duplicatedSymbols += string2[i]
             }
         }
     } else {
         for (i = 0; i < string1.length; i++) {
-            if (string2.find(string1[i])) {
+            if (string2.includes(string1[i])) {
                 duplicatedSymbols += string1[i]
             }
         }
@@ -33,4 +33,4 @@ function withDuplicateSymbols(stringToCheck, stringToCheckWith) {
     return duplicatedSymbols;
 }
 
-withDuplicateSymbols(string1, string2);
+alert(withDuplicateSymbols(string1, string2));
