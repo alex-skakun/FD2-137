@@ -2,13 +2,13 @@
 
 const firstString = getUserInput("Entert first string");
 const secondString = getUserInput("Entert second string");
-const duplicatedSymbols = findDuplicates(string1, string2);
+const duplicatedSymbols = findDuplicates(firstString, secondString);
 
 function findDuplicates(firstString, secondString) {
   let arr = [];
 
-  for (elementFirst of firstString) {
-    for (elementSecond of secondString) {
+  for (let elementFirst of firstString) {
+    for (let elementSecond of secondString) {
       if (elementSecond === elementFirst) {
         arr.push(elementFirst);
       }
@@ -19,7 +19,7 @@ function findDuplicates(firstString, secondString) {
 }
 
 function getUserInput(string) {
-  const userInput = prompt(string);
+  let userInput = prompt(string);
   userInput = typeof string !== "string" ? "" : userInput;
 
   return userInput;
