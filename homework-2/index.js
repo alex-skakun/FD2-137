@@ -8,7 +8,7 @@ function withDuplicateSymbols(string1, string2) {
 
     let flag = '';
 
-    if (string1 >= string2){
+    if (string1.length >= string2.length){
         flag = true;
     } else {
         flag = false;
@@ -16,7 +16,7 @@ function withDuplicateSymbols(string1, string2) {
 
     let duplicatedSymbols = '';
 
-    if (flag === 'true') {
+    if (flag) {
         for (i = 0; i < string2.length; i++) {
             if (string1.includes(string2[i])) {
                 duplicatedSymbols += string2[i]
