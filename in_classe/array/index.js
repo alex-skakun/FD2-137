@@ -2,23 +2,18 @@
 
 // function collectRepeat(str){
 
-// // const a1 = str.split('');
-// // const a2 = [...str];
+//     // const a1 = str.split('');
+//     // const a2 = [...str];
 
-// return [...str].reduce((stat, char) => stat[symbol] = (stat[symbol] ?? 0) + 1;
-
-// return stat;
+//     return [...str].reduce((stat, symbol) => {
+//          stat[symbol] = (stat[symbol] ?? 0) + 1;
+//          return stat;
 // }, {});
-// }
+//     }
+//     collectRepeat(str);
 
-function a (...numb){
-    const number = numb.filter(function(numb){
-        if(numb % 2 === 0){
-            return number;
-        }
-    });
-    return numb;
+function returnArrNum(...num) {
+  return num.filter((elem) => elem % 2 === 0);
 }
 
-a ([1,2,3,4,5]);
-
+returnArrNum(1, 2, 3, 4, 5, 6);
