@@ -31,19 +31,6 @@
 //   return res;
 // }
 
-// function func (numb){
-//   let i = 0;
-//   let res;
-//     while(res = numb/2 && numb >= 50){
-//   i++;
-//   }
-  
-//   return i;
-      
-//    }
-   
-//    func(1000);
-
 // function func (arr){
 
 //   let res = arr.reduce(function(el, current) {
@@ -52,4 +39,30 @@
 //   return res;
 //   }
 //   func(3046);
-  
+
+// function func(numb) {
+//   let i = 0;
+
+//   while (numb >= 50) {
+//      numb /= 2;
+//     ++i;
+//   }
+
+//   return i;
+// }
+
+// func(1000);
+
+function arraySum(num) {
+  const arr = Array.from(String(num), Number);
+  const res = arr.reduce((sum, item) => {
+    sum += item;
+    if (sum === 13) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+    return res;
+}
+arraySum(3046);
