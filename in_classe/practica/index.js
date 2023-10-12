@@ -53,16 +53,29 @@
 
 // func(1000);
 
+// function arraySum(num) {
+//   const arr = Array.from(String(num), Number);
+//   const res = arr.reduce((sum, item, index, array) => (sum += item));
+
+//   if (res === 13) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// arraySum(3046);
+
 function arraySum(num) {
   const arr = Array.from(String(num), Number);
-  const res = arr.reduce((sum, item) => {
-    sum += item;
-    if (sum === 13) {
-      return true;
-    } else {
-      return false;
-    }
-  });
-    return res;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  if (sum === 13) {
+    return true;
+  } else {
+    return false;
+  }
 }
 arraySum(3046);
