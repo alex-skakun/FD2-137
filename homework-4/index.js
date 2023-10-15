@@ -6,19 +6,15 @@ class Validator {
     }
     
     enable() {
-        this.isEnabled = true;
+        this._isEnabled = true;
     }
 
     disable() {
-        this.isEnabled = false;
+        this._isEnabled = false;
     }
 
     toggle(condition = '') {
-        if (condition === '') {
-            this.isEnabled = !this.isEnabled;
-        } else {
-            this.isEnabled = condition;
-        }
+        this._isEnabled = condition === '' ? !this._isEnabled : condition;
     }
 
     validate(value) {
