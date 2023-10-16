@@ -17,7 +17,9 @@ const connectorBottom = "┻";
 const connectorRight = "┫";
 const connectorLeft = "┣";
 const connectorCenter = "╋";
+countMaxWidth(columns, data);
 const textTable = createTextTable(columns, data);
+console.log(textTable);
 
 function removeСommas(inputStrings, targetSymbol, replacementSymbol) {
   let resultString = "";
@@ -35,15 +37,26 @@ function compareStringLengths(a, b) {
   if (a.length < b.length) return -1;
 }
 
+// function countMaxWidth(columns, data) {
+//   let countLength = "";
+//   let arrCountLength = [];
+//   data.forEach((dataObj) => {
+//     countLength += columns.map((column) => {
+//       return arrCountLength.push(String(dataObj[column]));
+//     });
+//   });
+//   arrCountLength.sort(compareStringLengths).at(-1).length;
+// }
+
 function createTextTable(columns, data) {
   let countLength = "";
   let arrCountLength = [];
   data.forEach((dataObj) => {
     countLength += columns.map((column) => {
-       arrCountLength.push(String(dataObj[column]));
+      return arrCountLength.push(String(dataObj[column]));
     });
   });
-  let countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
+   let countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
 
   let res = "";
   data.forEach((dataObj) => {
@@ -55,4 +68,3 @@ function createTextTable(columns, data) {
   });
   return removeСommas(res, ",", " ");
 }
-console.log(textTable);
