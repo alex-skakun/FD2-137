@@ -1,6 +1,6 @@
 'use strict';
 
-const columns = ['name', 'count', 'price'];
+const columns = ['name', 'countt', 'price'];
 const data = [
     { name: 'Хлеб', count: 22, price: 14.99 },
     { name: 'Молоко', count: 3, price: 3.2 },
@@ -30,7 +30,8 @@ function buildStringSymbols (firstSymbol, secondSymbol, thirdSymbol){
 }  
 
 function createTextTable(columns, data) {
-    let resultTextTable ='';//Создаём переменную результат
+//Создаём переменную результат
+    let resultTextTable ='';
     data.forEach((dataObj, i) => {
 //вставляем верхнюю  линию  
         if (i === 0){
