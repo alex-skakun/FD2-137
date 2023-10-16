@@ -36,16 +36,15 @@ function compareStringLengths(a, b) {
 }
 
 function createTextTable(columns, data) {
-
-let countLength = "";
+  let countLength = "";
   let arrCountLength = [];
   data.forEach((dataObj) => {
     countLength += columns.map((column) => {
-      return arrCountLength.push(String(dataObj[column]));
+       arrCountLength.push(String(dataObj[column]));
     });
   });
   let countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
- 
+
   let res = "";
   data.forEach((dataObj) => {
     res += columns.map((column, index) => {
