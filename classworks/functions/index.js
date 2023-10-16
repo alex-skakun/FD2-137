@@ -81,3 +81,5 @@ function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
 
     return resultString;
 }
+
+
