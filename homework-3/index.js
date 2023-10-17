@@ -17,6 +17,7 @@ const connectorBottom = "┻";
 const connectorRight = "┫";
 const connectorLeft = "┣";
 const connectorCenter = "╋";
+let countMaxWidth;
 const textTable = createTextTable(columns, data);
 console.log(textTable);
 
@@ -50,9 +51,7 @@ function compareStringLengths(a, b) {
 function buildSymbolsTable(firsytSymbol, SecondSymbol, thirdSymbol) {
   return (
     firsytSymbol +
-    columns
-      .map(() => horizontal.repeat(countMaxWidth))
-      .join(SecondSymbol) +
+    columns.map(() => horizontal.repeat(countMaxWidth)).join(SecondSymbol) +
     thirdSymbol
   );
 }
@@ -65,16 +64,28 @@ function createTextTable(columns, data) {
       return arrCountLength.push(String(dataObj[column]));
     });
   });
-  let countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
+  countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
 
   let res = "";
   data.forEach((dataObj, i) => {
-if (i === 0){
-`${res += buildSymbolsTable(leftTop, connectorTop, rightTop)}\n`
-}
-    res += `\n${vertical + columns.map((column) => {
-      return String(dataObj[column]).padEnd(countMaxWidth);
-    }) + vertical}\n`
+    if (i === 0) {
+      `${(res += buildSymbolsTable(leftTop, connectorTop, rightTop))}\n`;
+    } else {
+      `${(res += buildSymbolsTable(
+        connectorLeft,
+        connectorCenter,
+        connectorRight
+      ))}\n`;
+    }
+    res += `\n${
+      vertical +
+      columns.map((column) => {
+        return String(dataObj[column]).padEnd(countMaxWidth);
+      }) +
+      vertical
+    }\n`;
   });
-  return res.split(',').join(vertical);
+  `${(res += buildSymbolsTable(leftBottom, connectorBottom, rightBottom))}\n`;
+
+  return res.split(",").join(vertical);
 }
