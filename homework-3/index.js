@@ -17,28 +17,41 @@ const connectorBottom = "┻";
 const connectorRight = "┫";
 const connectorLeft = "┣";
 const connectorCenter = "╋";
-let countMaxWidth;
+let maxWidthObject = calcMaxWidthObject(columns, data);
 const textTable = createTextTable(columns, data);
 console.log(textTable);
 
-function removeСommas(inputStrings, targetSymbol, replacementSymbol) {
-  let resultString = "";
 
-  for (const char of inputStrings) {
-    resultString += char === targetSymbol ? replacementSymbol : char;
-  }
+function calcMaxWidthObject(columns, data) {
+   let maxCountWidthObject = {};
+  columns.forEach(column => {
+    let counter = 0;
+      data.forEach(dataObj => {
+          counter = Math.max(counter, dataObj[column].toString().length);
+      });
+      maxCountWidthObject[column] = counter;
 
-  return resultString;
+  });
+  return maxCountWidthObject;
 }
 
-function compareStringLengths(a, b) {
-  if (a.length > b.length) return 1;
-  if (a.length == b.length) return 0;
-  if (a.length < b.length) return -1;
-}
+// function removeСommas(inputStrings, targetSymbol, replacementSymbol) {
+//   let resultString = "";
+
+//   for (const char of inputStrings) {
+//     resultString += char === targetSymbol ? replacementSymbol : char;
+//   }
+
+//   return resultString;
+// }
+
+// function compareStringLengths(a, b) {
+//   if (a.length > b.length) return 1;
+//   if (a.length == b.length) return 0;
+//   if (a.length < b.length) return -1;
+// }
 
 // function countMaxWidth(columns, data) {
-//   let countLength = "";
 //   let arrCountLength = [];
 //   data.forEach((dataObj) => {
 //     countLength += columns.map((column) => {
@@ -51,20 +64,19 @@ function compareStringLengths(a, b) {
 function buildSymbolsTable(firsytSymbol, SecondSymbol, thirdSymbol) {
   return (
     firsytSymbol +
-    columns.map(() => horizontal.repeat(countMaxWidth)).join(SecondSymbol) +
+    columns.map((column) => horizontal.repeat(maxWidthObject[column])).join(SecondSymbol) +
     thirdSymbol
   );
 }
 
 function createTextTable(columns, data) {
-  let countLength = "";
-  let arrCountLength = [];
-  data.forEach((dataObj) => {
-    countLength += columns.map((column) => {
-      return arrCountLength.push(String(dataObj[column]));
-    });
-  });
-  countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
+  // let arrCountLength = [];
+  // data.forEach((dataObj) => {
+  //  columns.map((column) => {
+  //     return arrCountLength.push(String(dataObj[column]));
+  //   });
+  // });
+  // countMaxWidth = arrCountLength.sort(compareStringLengths).at(-1).length;
 
   let res = "";
   data.forEach((dataObj, i) => {
@@ -80,7 +92,7 @@ function createTextTable(columns, data) {
     res += `\n${
       vertical +
       columns.map((column) => {
-        return String(dataObj[column]).padEnd(countMaxWidth);
+        return String(dataObj[column]).padEnd(maxWidthObject[column]);
       }) +
       vertical
     }\n`;
