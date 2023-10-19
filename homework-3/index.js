@@ -1,9 +1,10 @@
 "use strict";
-const columns = ["name", "count", "price"];
+const columns = ["name", "count", "price", "name"];
 const data = [
   { name: "Хлеб", count: 12, price: 14.99 },
   { name: "Молоко", count: 3, price: 3.2 },
   { name: "Сыр", count: 1, price: 10 },
+  { name: "Вода", count: 2, price: 5.5 },
   { name: "Вода", count: 2, price: 5.5 },
 ];
 const horizontal = "━";
@@ -21,16 +22,14 @@ let maxWidthObject = calcMaxWidthObject(columns, data);
 const textTable = createTextTable(columns, data);
 console.log(textTable);
 
-
 function calcMaxWidthObject(columns, data) {
-   let maxCountWidthObject = {};
-  columns.forEach(column => {
+  let maxCountWidthObject = {};
+  columns.forEach((column) => {
     let counter = 0;
-      data.forEach(dataObj => {
-          counter = Math.max(counter, dataObj[column].toString().length);
-      });
-      maxCountWidthObject[column] = counter;
-
+    data.forEach((dataObj) => {
+      counter = Math.max(counter, dataObj[column].toString().length);
+    });
+    maxCountWidthObject[column] = counter;
   });
   return maxCountWidthObject;
 }
@@ -64,7 +63,9 @@ function calcMaxWidthObject(columns, data) {
 function buildSymbolsTable(firsytSymbol, SecondSymbol, thirdSymbol) {
   return (
     firsytSymbol +
-    columns.map((column) => horizontal.repeat(maxWidthObject[column])).join(SecondSymbol) +
+    columns
+      .map((column) => horizontal.repeat(maxWidthObject[column] + 2))
+      .join(SecondSymbol) +
     thirdSymbol
   );
 }
@@ -92,7 +93,11 @@ function createTextTable(columns, data) {
     res += `\n${
       vertical +
       columns.map((column) => {
-        return String(dataObj[column]).padEnd(maxWidthObject[column]);
+        return typeof dataObj[column] === "number"
+          ? String(dataObj[column])
+              .padStart(maxWidthObject[column] + 1)
+              .padEnd(maxWidthObject[column]) + ' '
+          :String(dataObj[column]).padEnd(maxWidthObject[column]).padStart(maxWidthObject[column] + 1) + ' ';
       }) +
       vertical
     }\n`;
