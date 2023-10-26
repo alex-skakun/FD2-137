@@ -16,11 +16,15 @@ class Validator {
   toggle() {
     this.enabled === true ? this.disable() : this.enable();
   }
-  validate() {
+  validate(res) {
     this.enabled === true
-      ? this.value.forEach((el) => {
-          return el[0]
+      ? this.value.find((el) => {
+          if (el(res) !== null) {
+            return console.log(el(res));
+          } else if (el(res) === null){
+            console.log(null);
+          }
         })
-      : null;
+      : console.log(null);
   }
 }

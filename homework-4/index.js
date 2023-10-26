@@ -1,5 +1,4 @@
 "use strict";
-const error = {};
 const required = (res) => {
   return Boolean(res) ? null : { required: true };
 };
