@@ -6,6 +6,7 @@ class Validator {
   constructor(value) {
     this.value = value;
   }
+
   enable() {
     this.enabled === true ? console.log("включен") : (this.enabled = true);
   }
@@ -15,11 +16,11 @@ class Validator {
   toggle() {
     this.enabled === true ? this.disable() : this.enable();
   }
-  validate(value) {
+  validate() {
     this.enabled === true
-      ? validator.forEach((el) => {
-        return el
-      })
-      : (value = null);
+      ? this.value.forEach((el) => {
+          return el[0]
+        })
+      : null;
   }
 }
