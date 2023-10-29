@@ -17,14 +17,29 @@ class Validator {
     this.enabled === true ? this.disable() : this.enable();
   }
   validate(res) {
-    this.enabled === true
-      ? this.value.find((el) => {
-          if (el(res) !== null) {
-            return console.log(el(res));
-          } else if (el(res) === null){
-            console.log(null);
-          }
-        })
-      : console.log(null);
+    this.value.forEach((el) => {
+      return arrSingleError.push(el(res));
+    });
+
+    if (this.enabled === true) {
+      arrSingleError.find((el) => {
+        if (el !== null) {
+          return console.log(el);
+        }
+      });
+    } else {
+      console.log(null);
+    }
+
+    if (this.enabled === true) {
+      arrSingleError.forEach((el) => {
+        if (el !== null) {
+          return arrSingleError.shift();
+        }
+      });
+    }
+    if (this.enabled === true && arrSingleError.length === this.value.length) {
+      console.log(null)
+    }
   }
 }

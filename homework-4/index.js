@@ -1,4 +1,5 @@
 "use strict";
+let arrSingleError = [];
 const required = (res) => {
   return Boolean(res) ? null : { required: true };
 };
