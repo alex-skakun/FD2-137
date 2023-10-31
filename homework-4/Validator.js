@@ -1,45 +1,53 @@
 "use strict";
 class Validator {
-  value;
   enabled = true;
 
-  constructor(value) {
+  constructor(value, modification = { mode: "multi" }) {
     this.value = value;
+    this.modification = modification;
   }
 
   enable() {
-    this.enabled === true ? console.log("включен") : (this.enabled = true);
+    this.enabled === false ? (this.enabled = true) : console.log("включен");
   }
   disable() {
-    this.enabled === false ? console.log("выключен") : (this.enabled = false);
+    this.enabled === true ? (this.enabled = false)  : console.log("выключен");
   }
   toggle() {
     this.enabled === true ? this.disable() : this.enable();
   }
-  validate(res) {
+  validate(val) {
     this.value.forEach((el) => {
-      return arrSingleError.push(el(res));
+      return arrError.push(el(val));
     });
 
     if (this.enabled === true) {
-      arrSingleError.find((el) => {
-        if (el !== null) {
-          return console.log(el);
-        }
-      });
+      if (this.modification.mode === "multi") {
+        arrError.forEach((el) => {
+          if (el !== null) {
+            return console.log(el);
+          }
+        });
+      } else {
+        arrError.find((el) => {
+          if (el !== null) {
+            return console.log(el);
+          }
+        });
+      }
     } else {
       console.log(null);
     }
 
     if (this.enabled === true) {
-      arrSingleError.forEach((el) => {
+      arrError.forEach((el) => {
         if (el !== null) {
-          return arrSingleError.shift();
+          return arrError.shift();
         }
       });
     }
-    if (this.enabled === true && arrSingleError.length === this.value.length) {
-      console.log(null)
+    if (this.enabled === true && arrError.length === this.value.length) {
+      console.log(null);
     }
   }
 }
