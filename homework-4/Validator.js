@@ -18,39 +18,45 @@ class Validator {
   }
   validate(val) {
     let arrError = [];
-    this.value.forEach((el) => {
-      return arrError.push(el(val));
-    });
 
-    if (this.enabled === true) {
-      if (this.modification.mode === "multi") {
-         arrError.forEach((el) => {
-          if (el !== null) {
-            return el;
-          } else if (arrError.length === this.value.length) {
-            return null;
-          }
-        });
-      } else if (this.modification.mode === "single") {
-        return arrError.find((el) => {
-          if (el !== null) {
-            return el;
-          }
-        });
-      }
+    if (this.enabled === true && this.modification) {
+      this.value.forEach((el) => {
+        return arrError.push(el(val));
+      });
+    } else if (this.enabled === true && !this.modification) {
+      this.value.forEach((el) => {
+        return arrError.push(el(val));
+      });
     } else {
       return null;
     }
 
-    // if (this.enabled === true) {
-    //   arrError.forEach((el) => {
-    //     if (el !== null) {
-    //       return arrError.shift();
-    //     }
-    //   });
-    // }
-    // if (this.enabled === true && arrError.length === this.value.length) {
-    //   return null;
-    // }
+    arrError.forEach((el) => {
+      if (el === null) {
+        arrError.shift();
+      }
+    });
+    if (arrError.length === 0) {
+      return null;
+    }
+
+    if (this.modification) {
+      let error = "Error:";
+      if (this.modification) {
+        let arrSearchError = arrError.filter((el) => el !== null);
+        arrSearchError.forEach((el) => {
+          for (let [key, value] of Object.entries(el)) {
+            error += ` ${key} : ${value} ;`;
+          }
+        });
+        return error;
+      }
+    } else if (!this.modification) {
+      return arrError.find((el) => {
+        if (el !== null) {
+          return el;
+        }
+      });
+    }
   }
 }

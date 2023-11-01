@@ -25,9 +25,7 @@ const max = (max) => {
 };
 
 // создаём экземпляр валидатора с конфигурацией по умолчанию (не передаём второй аргумент).
-const validator = new Validator([required, minLength(5), maxLength(25)], {
-  mode: "single",
-});
+const validator = new Validator([required, minLength(5), maxLength(25)]);
 
 // validator.validate("test"); // вернёт {minLength: true}
 // validator.validate(""); // вернёт {required: true}
@@ -40,7 +38,7 @@ const validator = new Validator([required, minLength(5), maxLength(25)], {
 
 // // создаём экземпляр валидатора с режимом 'mutli'.
 const multiValidator = new Validator(
-  [required, minLength(5), maxLength(25), min(11111), max(1111111111111111)],
+  [required, minLength(5), maxLength(25), min('111110'), max('111113')],
   {
     mode: "multi",
   }
