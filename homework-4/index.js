@@ -1,5 +1,4 @@
 "use strict";
-let arrError = [];
 const required = (val) => {
   return Boolean(val) ? null : { required: true };
 };
@@ -26,7 +25,9 @@ const max = (max) => {
 };
 
 // создаём экземпляр валидатора с конфигурацией по умолчанию (не передаём второй аргумент).
-const validator = new Validator([required, minLength(5), maxLength(25)]);
+const validator = new Validator([required, minLength(5), maxLength(25)], {
+  mode: "single",
+});
 
 // validator.validate("test"); // вернёт {minLength: true}
 // validator.validate(""); // вернёт {required: true}
