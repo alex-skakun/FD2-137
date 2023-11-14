@@ -2,34 +2,47 @@ const { cwd } = require("node:process");
 const { resolve } = require("node:path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
-  mode: "development",
-  context: resolve(cwd(), "./src"),
-  devtool: "source-map",
-  entry: {
-    main: "./index",
-  },
-  output: {
-    path: resolve(cwd(), "./dist"),
-    filename: "[name].[contenthash].js",
-    clean: true,
-  },
-  resolve: {
-    extentions: [".ts", ".js"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: "ts-loader",
-      },
+module.exports = (_, flags) => {
+  const isProd = flags.mode === "production";
+  return {
+    mode: isProd ? "production" : "development",
+    context: resolve(cwd(), "./src"),
+    devtool: "source-map",
+    entry: {
+      main: "./index",
+    },
+
+    // mode: "development",
+    // context: resolve(cwd(), "./src"),
+    // devtool: "source-map",
+    // entry: {
+    //   main: "./index",
+    // },
+    output: {
+      path: resolve(cwd(), "./dist"),
+      filename: "[name].[contenthash].js",
+      clean: true,
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".jsx", ".js"],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+        },
+      ],
+    },
+    plugins: [
+      new HTMLWebpackPlugin({
+        template: "./index.html",
+        inject: "head",
+        scriptLoading: "defer",
+      }),
     ],
-  },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: "./index.html",
-      inject: "head",
-      scriptLoading: "defer",
-    }),
-  ],
+    // devserver: {
+    //   port: 8181,
+    // },
+  };
 };

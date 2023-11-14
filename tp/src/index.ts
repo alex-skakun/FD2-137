@@ -1,1 +1,3 @@
-alert('ok');
+import { greet } from "./greet";
+
+greet("Hello World");
