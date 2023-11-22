@@ -17,11 +17,10 @@
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="../lib/remixicon/fonts/remixicon.css">
-    <link rel="stylesheet" href="../lib/cryptofont/css/cryptofont.min.css">
     <link rel="stylesheet" href="../lib/apexcharts/apexcharts.css">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style.min.css">
+    <link rel="stylesheet" href="./files/style.css">
   </head>
   <body>
 
@@ -34,7 +33,7 @@
           <a href="#" class="nav-label">Dashboard</a>
           <ul class="nav nav-sidebar">
             <li class="nav-item">
-              <a href="../dashboard/finance.html" class="nav-link"><i class="ri-pie-chart-2-line"></i> <span>Finance Monitoring</span></a>
+              <a href="../dashboard/finance.html" class="nav-link active"><i class="ri-pie-chart-2-fill"></i> <span>Finance Monitoring</span></a>
             </li>
             <li class="nav-item">
               <a href="../dashboard/events.html" class="nav-link"><i class="ri-calendar-todo-line"></i> <span>Events Management</span></a>
@@ -46,7 +45,7 @@
               <a href="../dashboard/analytics.html" class="nav-link"><i class="ri-bar-chart-2-line"></i> <span>Website Analytics</span></a>
             </li>
             <li class="nav-item">
-              <a href="../dashboard/crypto.html" class="nav-link active"><i class="ri-coin-fill"></i> <span>Cryptocurrency</span></a>
+              <a href="../dashboard/crypto.html" class="nav-link"><i class="ri-coin-line"></i> <span>Cryptocurrency</span></a>
             </li>
             <li class="nav-item">
               <a href="../dashboard/helpdesk.html" class="nav-link"><i class="ri-service-line"></i> <span>Helpdesk Service</span></a>
@@ -362,7 +361,7 @@
         <div>
           <ol class="breadcrumb fs-sm mb-1">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Cryptocurrency</li>
+            <li class="breadcrumb-item active" aria-current="page">Finance Monitoring</li>
           </ol>
           <h4 class="main-title mb-0">Welcome to Dashboard</h4>
         </div>
@@ -374,529 +373,337 @@
       </div>
 
       <div class="row g-3">
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-xl-9">
           <div class="card card-one">
-            <div class="card-body overflow-hidden px-0">
-              <div class="crypto-item">
-                <div class="avatar bg-orange"><i class="cf cf-btc"></i></div>
-                <div class="crypto-body">
-                  <label class="card-label">Bitcoin <span>(BTC)</span></label>
-                  <h6 class="card-value">$3,972.87</h6>
-                </div><!-- crypto-body -->
-              </div><!-- crypto-item -->
-              <div id="apexChart1" class="apex-chart-ten"></div>
+            <div class="card-body overflow-hidden px-0 pb-3">
+              <div class="finance-info p-3 p-xl-4">
+                <label class="fs-sm fw-medium mb-2 mb-xl-1">Profit This Year</label>
+                <h1 class="finance-value"><span>$</span>867,036.50 <span>USD</span></h1>
+
+                <h4 class="finance-subvalue mb-3 mb-md-2">
+                  <i class="ri-arrow-up-line text-primary"></i>
+                  <span class="text-primary">38.63%</span>
+                  <small>vs last year</small>
+                </h4>
+
+                <p class="w-50 fs-sm mb-2 mb-xl-4 d-none d-sm-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...</p>
+
+                <div class="row row-cols-auto g-3 g-xl-4 pt-2">
+                  <div class="col">
+                    <h6 class="card-value fs-15 mb-1">$30,342.15 USD</h6>
+                    <span class="fs-sm fw-medium text-secondary d-block mb-1">First Quarter</span>
+                    <span class="text-success fs-xs d-flex align-items-center ff-numerals">2.3% <i class="ri-arrow-up-line fs-15 lh-3"></i></span>
+                  </div><!-- col -->
+                  <div class="col">
+                    <h6 class="card-value fs-15 mb-1">$48,036.90 USD</h6>
+                    <span class="fs-sm fw-medium text-secondary d-block mb-1">Second Quarter</span>
+                    <span class="text-success fs-xs d-flex align-items-center ff-numerals">6.8% <i class="ri-arrow-up-line fs-15 lh-3"></i></span>
+                  </div><!-- col -->
+                  <div class="col">
+                    <h6 class="card-value fs-15 mb-1">$68,156.00 USD</h6>
+                    <span class="fs-sm fw-medium text-secondary d-block mb-1">Third Quarter</span>
+                    <span class="text-success fs-xs d-flex align-items-center ff-numerals">10.5% <i class="ri-arrow-up-line fs-15 lh-3"></i></span>
+                  </div><!-- col -->
+                  <div class="col">
+                    <h6 class="card-value fs-15 mb-1">$64,896.65 USD</h6>
+                    <span class="fs-sm fw-medium text-secondary d-block mb-1">Fourth Quarter</span>
+                    <span class="text-danger fs-xs d-flex align-items-center ff-numerals">0.8% <i class="ri-arrow-down-line fs-15 lh-3"></i></span>
+                  </div><!-- col -->
+                </div><!-- row -->
+
+              </div>
+
+              <nav class="nav nav-finance-one p-3 p-xl-4">
+                <a href="" class="active">2023</a>
+                <a href="">2022</a>
+                <a href="">2021</a>
+              </nav>
+
+              <div id="apexChart1" class="apex-chart-two"></div>
             </div><!-- card-body -->
-            <div class="card-footer card-footer-crypto pt-0">
-              <div><strong>12</strong> USD Markets</div>
-              <div><strong>80</strong> BTC Markets</div>
-            </div><!-- card-footer -->
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-xl-3">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-12">
+              <div class="card card-one">
+                <div class="card-body overflow-hidden">
+                  <h2 class="card-value mb-1">75<span>%</span></h2>
+                  <h6 class="text-dark fw-semibold mb-1">Gross Profit Margin</h6>
+                  <p class="fs-xs text-secondary mb-0 lh-4">The gross profit you make on each dollar of sales.</p>
+                  <div id="apexChart2" class="apex-chart-three"></div>
+                </div>
+              </div><!-- card -->
+            </div><!-- col -->
+            <div class="col-sm-6 col-xl-12">
+              <div class="card card-one">
+                <div class="card-body">
+                  <h2 class="card-value mb-1">68<span>%</span></h2>
+                  <h6 class="text-dark fw-semibold mb-1">Net Profit Margin</h6>
+                  <p class="fs-xs text-secondary mb-0 lh-4">Measures your business at generating profit sales.</p>
+                  <div id="apexChart3" class="apex-chart-three"></div>
+                </div>
+              </div><!-- card -->
+            </div><!-- col -->
+          </div><!-- row -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl">
           <div class="card card-one">
-            <div class="card-body overflow-hidden px-0">
-              <div class="crypto-item">
-                <div class="avatar bg-twitter"><i class="cf cf-etc"></i></div>
-                <div class="crypto-body">
-                  <label class="card-label">Ethereum <span>(ETC)</span></label>
-                  <h6 class="card-value">$136.99</h6>
-                </div><!-- crypto-body -->
-              </div><!-- crypto-item -->
-              <div id="apexChart2" class="apex-chart-ten"></div>
+            <div class="card-body">
+              <div id="apexChart4" class="mb-1"></div>
+              <h3 class="card-value">0.9:8</h3>
+              <div class="progress ht-5 mb-2">
+                <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <label class="fw-semibold text-dark mb-1">Quick Ratio Goal: 1.0 or higher</label>
+              <p class="fs-sm text-secondary mb-0">Measures your Accounts Receivable / Current Liabilities</p>
             </div><!-- card-body -->
-            <div class="card-footer card-footer-crypto pt-0">
-              <div><strong>10</strong> USD Markets</div>
-              <div><strong>65</strong> ETH Markets</div>
-            </div><!-- card-footer -->
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-xl">
           <div class="card card-one">
-            <div class="card-body overflow-hidden px-0">
-              <div class="crypto-item">
-                <div class="avatar bg-success"><i class="cf cf-btc"></i></div>
-                <div class="crypto-body">
-                  <label class="card-label">Bitcoin Cash <span>(BCH)</span></label>
-                  <h6 class="card-value">$160.43</h6>
-                </div><!-- crypto-body -->
-              </div><!-- crypto-item -->
-              <div id="apexChart3" class="apex-chart-ten"></div>
+            <div class="card-body">
+              <div id="apexChart5" class="mb-1"></div>
+              <h3 class="card-value">2.8:0</h3>
+              <div class="progress ht-5 mb-2">
+                <div class="progress-bar bg-ui-02 w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <label class="fw-semibold text-dark mb-1">Quick Ratio Goal: 2.0 or higher</label>
+              <p class="fs-sm text-secondary mb-0">Measures your Current Assets / Current Liabilities</p>
             </div><!-- card-body -->
-            <div class="card-footer card-footer-crypto pt-0">
-              <div><strong>12</strong> USD Markets</div>
-              <div><strong>74</strong> BCH Markets</div>
-            </div><!-- card-footer -->
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-sm-6 col-xl-3">
-          <div class="card card-one">
-            <div class="card-body overflow-hidden px-0">
-              <div class="crypto-item">
-                <div class="avatar bg-primary"><i class="cf cf-dash"></i></div>
-                <div class="crypto-body">
-                  <label class="card-label">Dash <span>(DASH)</span></label>
-                  <h6 class="card-value">$90.58</h6>
-                </div><!-- crypto-body -->
-              </div><!-- crypto-item -->
-              <div id="apexChart4" class="apex-chart-ten"></div>
+        <div class="col-md-7 col-xl-5">
+          <div class="card card-one card-wallet">
+            <div class="card-body">
+              <div class="finance-icon">
+                <i class="ri-mastercard-fill"></i>
+                <i class="ri-visa-line"></i>
+              </div>
+              <label class="card-title mb-1">Available Balance</label>
+              <h2 class="card-value mb-auto"><span>$</span>130,058.50</h2>
+
+              <label class="card-title mb-1">Account Number</label>
+              <div class="d-flex align-items-center gap-4 mb-3">
+                <div class="d-flex gap-1">
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                </div>
+                <div class="d-flex gap-1">
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                </div>
+                <div class="d-flex gap-1">
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                  <span class="badge-dot"></span>
+                </div>
+                <h5 class="ff-numerals mb-0">5314</h5>
+              </div>
+
+              <label class="card-title mb-1">Account Name</label>
+              <h5 class="mb-0">Richard M. Christensen</h5>
             </div><!-- card-body -->
-            <div class="card-footer card-footer-crypto pt-0">
-              <div><strong>16</strong> USD Markets</div>
-              <div><strong>31</strong> DASH Markets</div>
-            </div><!-- card-footer -->
+            <div id="apexChart6" class="apex-chart-two"></div>
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-xl-8">
+        <div class="col-md-5 col-xl-6">
           <div class="card card-one">
             <div class="card-header">
-              <h6 class="card-title">Cryptocurrency Watchlist</h6>
+              <h6 class="card-title">Income &amp; Expenses</h6>
               <nav class="nav nav-icon nav-icon-sm ms-auto">
                 <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
                 <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
               </nav>
             </div><!-- card-header -->
-            <div class="card-body">
-              <div id="apexChart5" class="apex-chart-nine mb-4"></div>
-              <div class="row row-cols-auto gy-3 gx-5">
+            <div class="card-body pb-4">
+              <div id="apexChart7"></div>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-xl-6">
+          <div class="card card-one">
+            <div class="card-header border-0 pb-2">
+              <h6 class="card-title">Profit Margin (%)</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body pt-0">
+              <p class="fs-sm text-secondary mb-4">Profit margin is a measure of profitability. It is calculated by finding the profit as a percentage of the revenue.</p>
+
+              <div class="progress progress-finance mb-4">
+                <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">29.7%</div>
+                <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">52.8%</div>
+                <div class="progress-bar w-20" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">18.3%</div>
+              </div>
+
+              <div class="row g-3">
                 <div class="col">
-                  <label class="fs-xs mb-1 text-secondary">Market Cap</label>
-                  <h4 class="ff-numerals text-dark mb-0">$14.5B</h4>
+                  <label class="card-label fs-sm fw-medium mb-1">Gross Profit</label>
+                  <h2 class="card-value mb-0">29.7%</h2>
+                </div><!-- col -->
+                <div class="col-5 col-sm">
+                  <label class="card-label fs-sm fw-medium mb-1">Operating Profit</label>
+                  <h2 class="card-value mb-0">52.8%</h2>
                 </div><!-- col -->
                 <div class="col">
-                  <label class="fs-xs mb-1 text-secondary">Volume (24h)</label>
-                  <h4 class="ff-numerals text-dark mb-0">$6.8B</h4>
-                </div><!-- col -->
-                <div class="col">
-                  <label class="fs-xs mb-1 text-secondary">Change</label>
-                  <h4 class="ff-numerals text-dark mb-0">$7.98</h4>
-                </div><!-- col -->
-                <div class="col">
-                  <label class="fs-xs mb-1 text-secondary">Circulating Supply</label>
-                  <h4 class="ff-numerals text-dark mb-0">$18.59M</h4>
-                </div><!-- col -->
-                <div class="col">
-                  <label class="fs-xs mb-1 text-secondary">All Time High</label>
-                  <h4 class="ff-numerals text-dark mb-0">$16.4K</h4>
+                  <label class="card-label fs-sm fw-medium mb-1">Net Profit</label>
+                  <h2 class="card-value mb-0">18.3%</h2>
                 </div><!-- col -->
               </div><!-- row -->
             </div><!-- card-body -->
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-sm-6 col-xl-4">
+        <div class="col-xl-8">
           <div class="card card-one">
             <div class="card-header">
-              <h6 class="card-title">Bitcoin Wallet</h6>
+              <h6 class="card-title">Expense Analytics</h6>
               <nav class="nav nav-icon nav-icon-sm ms-auto">
                 <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
                 <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
               </nav>
             </div><!-- card-header -->
-            <div class="card-body">
-              <label class="card-title fw-medium fs-sm mb-1">Available Balance</label>
-              <h3 class="card-value mb-1">26.00453100 <span class="text-secondary">BTC</span></h3>
-              <div class="d-flex gap-2 ff-numerals fs-sm">
-                <div><span class="text-primary">USD</span> $103,342.50</div>
-                <div><span class="text-success">EUR</span> $91,105.00</div>
+            <div class="card-body p-4">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div id="apexChart8" class="apex-chart-three"></div>
+                </div><!-- col -->
+                <div class="col-md-6">
+                  <div class="d-flex">
+                    <i class="ri-hotel-line fs-48 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-1">Fixed Expenses</h6>
+                      <p class="fs-sm text-secondary mb-0">Fixed expenses are generally fixed in both amount and interval.</p>
+                    </div>
+                  </div>
+                  <div class="d-flex mt-3">
+                    <i class="ri-wallet-3-line fs-48 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-1">Periodic Expenses</h6>
+                      <p class="fs-sm text-secondary mb-0">Periodic expenses are usually less frequent and the amount can vary.</p>
+                    </div>
+                  </div>
+                  <div class="d-flex mt-3">
+                    <i class="ri-shopping-bag-3-line fs-48 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-1">Variable Expenses</h6>
+                      <p class="fs-sm text-secondary mb-0">Change as the quantity of good or service that produces changes.</p>
+                    </div>
+                  </div>
+                </div><!-- col -->
+              </div><!-- row -->
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Billed Opportunities</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body position-relative d-flex justify-content-center">
+              <div id="chartDonut" class="apex-donut-two"></div>
+              <div class="finance-donut-value">
+                <h1>1.8B</h1>
+                <p>86.24%</p>
               </div>
-
-              <div class="d-flex gap-2 mt-4 mb-4">
-                <a href="" class="btn btn-white flex-fill">Send</a>
-                <a href="" class="btn btn-primary flex-fill">Receive</a>
-              </div>
-
-              <div class="d-flex align-items-center justify-content-between fs-xs mb-1">
-                <label class="mg-b-0 fw-medium text-secondary">Recent Transactions</label>
-                <a href="">Show All</a>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0 d-flex justify-content-between">
-                  <span class="fw-medium">Received Bitcoin</span>
-                  <span class="ff-numerals">+0.00003998 BTC</span>
-                </li>
-                <li class="list-group-item px-0 d-flex justify-content-between">
-                  <span class="fw-medium">Sent Bitcoin</span>
-                  <span class="ff-numerals">-0.01570525 BTC</span>
-                </li>
-                <li class="list-group-item px-0 d-flex justify-content-between">
-                  <span class="fw-medium">Ethereum Conversion</span>
-                  <span class="ff-numerals">+2.0157 ETH</span>
-                </li>
-                <li class="list-group-item px-0 d-flex justify-content-between">
-                  <span class="fw-medium">Bought Bitcoin</span>
-                  <span class="ff-numerals">+0.000033420 BTC</span>
-                </li>
-                <li class="list-group-item px-0 d-flex justify-content-between">
-                  <span class="fw-medium">Sent Bitcoin</span>
-                  <span class="ff-numerals">-0.01570525 BTC</span>
-                </li>
-              </ul>
             </div><!-- card-body -->
           </div><!-- card -->
         </div><!-- col -->
-        <div class="col-sm-6 col-xl-4">
+        <div class="col">
           <div class="card card-one">
-            <div class="card-header">
-              <h6 class="card-title">Volume By Currency</h6>
-              <nav class="nav nav-icon nav-icon-sm ms-auto">
-                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
-                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
-              </nav>
-            </div><!-- card-header -->
-            <div class="card-body">
-              <div class="chart-donut-one mb-3"><canvas id="chartDonut"></canvas></div>
+            <div class="card-body p-3 p-xl-4">
+              <div class="row justify-content-center g-3 mb-2 mb-xl-4">
+                <div class="col-6 col-sm-4 col-md">
+                  <div class="finance-item">
+                    <div class="finance-item-circle">
+                      <h1>4.7B</h1>
+                      <label>Total Income</label>
+                    </div><!-- finance-item-circle -->
+                  </div><!-- finance-item -->
+                </div><!-- col -->
+                <div class="col-6 col-sm-4 col-md">
+                  <div class="finance-item">
+                    <div class="finance-item-circle">
+                      <h1>60M</h1>
+                      <label>Total Expenses</label>
+                    </div><!-- finance-item-circle -->
+                  </div><!-- finance-item -->
+                </div><!-- col -->
+                <div class="col-6 col-sm-4 col-md">
+                  <div class="finance-item">
+                    <div class="finance-item-circle bg-gray-400">
+                      <h1>2.1B</h1>
+                      <label>Net Profit</label>
+                    </div><!-- finance-item-circle -->
+                  </div><!-- finance-item -->
+                </div><!-- col -->
+                <div class="col-6 col-sm-4 col-md">
+                  <div class="finance-item">
+                    <div class="finance-item-circle">
+                      <h1>18.2%</h1>
+                      <label>Quick Ratio</label>
+                    </div><!-- finance-item-circle -->
+                  </div><!-- finance-item -->
+                </div><!-- col -->
+                <div class="col-6 col-sm-4 col-md">
+                  <div class="finance-item">
+                    <div class="finance-item-circle">
+                      <h1>6.8%</h1>
+                      <label>Current Ratio</label>
+                    </div><!-- finance-item-circle -->
+                  </div><!-- finance-item -->
+                </div><!-- col -->
+              </div><!-- row -->
 
-              <table class="table table-five">
-                <tbody>
-                  <tr>
-                    <td><div><span class="badge-dot bg-primary"></span> <span class="fw-medium">USD</span></div></td>
-                    <td>4,024.52</td>
-                    <td><div class="justify-content-end text-success">0.96% <i class="ri-arrow-up-line"></i></div></td>
-                  </tr>
-                  <tr>
-                    <td><div><span class="badge-dot bg-ui-02"></span> <span class="fw-medium">EUR</span></div></td>
-                    <td>3,539.23</td>
-                    <td><div class="justify-content-end text-success">0.75% <i class="ri-arrow-up-line"></i></div></td>
-                  </tr>
-                  <tr>
-                    <td><div><span class="badge-dot bg-teal"></span> <span class="fw-medium">CNY</span></div></td>
-                    <td>27,499.4</td>
-                    <td><div class="justify-content-end text-danger">-0.58% <i class="ri-arrow-down-line"></i></div></td>
-                  </tr>
-                  <tr>
-                    <td><div><span class="badge-dot bg-info"></span> <span class="fw-medium">GBP</span></div></td>
-                    <td>3,022.90</td>
-                    <td><div class="justify-content-end text-danger">-0.69% <i class="ri-arrow-down-line"></i></div></td>
-                  </tr>
-                  <tr>
-                    <td><div><span class="badge-dot bg-twitter"></span> <span class="fw-medium">NZD</span></div></td>
-                    <td>444,814.7</td>
-                    <td><div class="justify-content-end text-success">0.82% <i class="ri-arrow-up-line"></i></div></td>
-                  </tr>
-                  <tr class="d-none d-xl-table-row">
-                    <td><div><span class="badge-dot bg-secondary"></span> <span class="fw-medium">KRW</span></div></td>
-                    <td>4,491,099.6</td>
-                    <td><div class="justify-content-end text-danger">-1.11% <i class="ri-arrow-down-line"></i></div></td>
-                  </tr>
-                  <tr class="d-none d-xl-table-row">
-                    <td><div><span class="badge-dot bg-gray-400"></span> <span class="fw-medium">SGD</span></div></td>
-                    <td>5,393.0</td>
-                    <td><div class="justify-content-end text-success">0.66% <i class="ri-arrow-up-line"></i></div></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div><!-- card-body -->
-          </div><!-- card -->
-        </div><!-- col -->
-        <div class="col-sm-6 col-xl-4">
-          <div class="card card-one">
-            <div class="card-header">
-              <h6 class="card-title">Portfolio</h6>
-              <nav class="nav nav-icon nav-icon-sm ms-auto">
-                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
-                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
-              </nav>
-            </div><!-- card-header -->
-            <div class="card-body">
-              <div class="position-absolute p-1">
-                <label class="fw-medium fs-sm mb-1">Total Balance</label>
-                <h3 class="card-value"><span class="text-secondary">$</span>7,428.68</h3>
-              </div>
-              <div id="apexChart6" class="apex-chart-ten mb-4"></div>
-
-              <ul class="list-group list-group-one">
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-btc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bitcoin</h6>
-                    <small>BTC/USD</small>
+              <div class="row g-4 g-lg-5 pt-3">
+                <div class="col-sm-6 col-xl-3">
+                  <div class="d-flex">
+                    <i class="ri-wallet-2-line fs-32 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-2">Accounts Receivable</h6>
+                      <p class="fs-sm text-secondary mb-0">The proceeds or payment which the company will receive from its customers.</p>
+                    </div>
                   </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">0.7200 BTC</h6>
-                    <small class="text-secondary">$2,907.71 USD</small>
+                </div><!-- col -->
+                <div class="col-sm-6 col-xl-3">
+                  <div class="d-flex">
+                    <i class="ri-refund-2-line fs-32 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-2">Accounts Payable</h6>
+                      <p class="fs-sm text-secondary mb-0">Money owed by a business to its suppliers shown as a liability.</p>
+                    </div>
                   </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-eth"></i></div>
-                  <div>
-                    <h6 class="mb-0">Ethereum</h6>
-                    <small>ETH/USD</small>
+                </div><!-- col -->
+                <div class="col-sm-6 col-xl-3">
+                  <div class="d-flex">
+                    <i class="ri-exchange-line fs-32 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-2">Quick Ratio</h6>
+                      <p class="fs-sm text-secondary mb-0">Measures the ability of a company to use its near cash or quick assets.</p>
+                    </div>
                   </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">15.0030 ETH</h6>
-                    <small class="text-secondary">$2,083.62 USD</small>
+                </div><!-- col -->
+                <div class="col-sm-6 col-xl-3">
+                  <div class="d-flex">
+                    <i class="ri-exchange-dollar-line fs-32 lh-1 me-3"></i>
+                    <div>
+                      <h6 class="fw-semibold text-dark mb-2">Current Ratio</h6>
+                      <p class="fs-sm text-secondary mb-0">Measures whether a firm has enough resources to meet its short-term obligations.</p>
+                    </div>
                   </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-ltc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Litecoin</h6>
-                    <small>LTC/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">12.5021 LTC</h6>
-                    <small class="text-secondary">$748.88 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-dash"></i></div>
-                  <div>
-                    <h6 class="mb-0">Dash</h6>
-                    <small>DASH/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">16.5019 DASH</h6>
-                    <small class="text-secondary">$1,521.97 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-btc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bitcoin Cash</h6>
-                    <small>BCH/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">5.8120 BCH</h6>
-                    <small class="text-secondary">$916.67 USD</small>
-                  </div>
-                </li>
-              </ul>
-            </div><!-- card-body -->
-          </div><!-- card -->
-        </div><!-- col -->
-        <div class="col-sm-6 col-xl-4">
-          <div class="card card-one">
-            <div class="card-header">
-              <h6 class="card-title">Price Indexes</h6>
-              <nav class="nav nav-icon nav-icon-sm ms-auto">
-                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
-                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
-              </nav>
-            </div><!-- card-header -->
-            <div class="card-body">
-              <ul class="list-group list-group-one">
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-orange text-white"><i class="cf cf-btc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bitcoin</h6>
-                    <small>BTC/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$4,000.19</h6>
-                    <small class="text-success">0.27%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-twitter text-white"><i class="cf cf-eth"></i></div>
-                  <div>
-                    <h6 class="mb-0">Ethereum</h6>
-                    <small>ETH/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$138.90</h6>
-                    <small class="text-success">0.35%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-litecoin text-white"><i class="cf cf-ltc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Litecoin</h6>
-                    <small>LTC/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$59.95</h6>
-                    <small class="text-success">0.05%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-success text-white"><i class="cf cf-btc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bitcoin Cash</h6>
-                    <small>BCH/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$160.28</h6>
-                    <small class="text-danger">-0.19%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-primary text-white"><i class="cf cf-dash"></i></div>
-                  <div>
-                    <h6 class="mb-0">Dash</h6>
-                    <small>DASH/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$92.20</h6>
-                    <small class="text-danger">-0.21%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-ui-02 text-white"><i class="cf cf-bsd"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bitsend</h6>
-                    <small>BSD/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$56.53</h6>
-                    <small class="text-success">2.86%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-pink text-white"><i class="cf cf-bcn"></i></div>
-                  <div>
-                    <h6 class="mb-0">Bytecoin</h6>
-                    <small>BCN/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$0.76</h6>
-                    <small class="text-danger">-1.32%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-info text-white"><i class="cf cf-dmd"></i></div>
-                  <div>
-                    <h6 class="mb-0">Diamond</h6>
-                    <small>DMD/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$280.80</h6>
-                    <small class="text-success">2.01%</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar bg-danger text-white"><i class="cf cf-emc"></i></div>
-                  <div>
-                    <h6 class="mb-0">Emercoin</h6>
-                    <small>EMC/USD</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">$48.25</h6>
-                    <small class="text-success">1.22%</small>
-                  </div>
-                </li>
-              </ul>
-            </div><!-- card-body -->
-          </div><!-- card -->
-        </div><!-- col -->
-        <div class="col-xl-7">
-          <div class="card card-one">
-            <div class="card-header">
-              <h6 class="card-title">Cryptocurrency News</h6>
-              <nav class="nav nav-icon nav-icon-sm ms-auto">
-                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
-                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
-              </nav>
-            </div><!-- card-header -->
-            <div class="card-body">
-              <div class="news-item">
-                <div class="news-img"><img src="../assets/img/crypto1.jpg" class="img-fluid" alt=""></div>
-                <div class="news-body">
-                  <label class="d-block mb-1 fs-sm text-primary">Crypto Ninja</label>
-                  <h6 class="news-title fw-semibold"><a href="" class="text-dark">Dow Futures, Bitcoin Teeter as Markets Wait for FOMC Bounce</a></h6>
-                  <p class="news-text mb-0">As the unwelcome bearish momentum returns to all top cryptocurrency markets, most of this...</p>
-                </div><!-- news-body -->
-              </div><!-- news-item -->
-              <div class="news-item">
-                <div class="news-img"><img src="../assets/img/crypto2.jpg" class="img-fluid" alt=""></div>
-                <div class="news-body">
-                  <label class="d-block mb-1 fs-sm text-primary">Cable News Network</label>
-                  <h6 class="news-title fw-semibold"><a href="" class="text-dark">XRP Price Remains Bearish as XRP/BTC Drops Below 7,800 Satoshi</a></h6>
-                  <p class="news-text mb-0">Liquidity has shifted away from the top gaining crypto assets, with only six of the week’s 30 top performing...</p>
-                </div><!-- news-body -->
-              </div><!-- news-item -->
-              <div class="news-item">
-                <div class="news-img"><img src="../assets/img/crypto3.jpg" class="img-fluid" alt=""></div>
-                <div class="news-body">
-                  <label class="d-block mb-1 fs-sm text-primary">Bitcoin.com</label>
-                  <h6 class="news-title fw-semibold"><a href="" class="text-dark">Bitcoin Price to $4500 soon? BTC Price Analysis</a></h6>
-                  <p class="news-text mb-0">Published on CoinnounceTechnical Indicators: Support Level: $3900 Resistance Levels: $4100, $4200 Bitcoin...</p>
-                </div><!-- news-body -->
-              </div><!-- news-item -->
-            </div><!-- card-body -->
-          </div><!-- card -->
-        </div><!-- col -->
-        <div class="col-sm-12 col-xl-5">
-          <div class="card card-one">
-            <div class="card-header">
-              <h6 class="card-title">Transactions</h6>
-              <nav class="nav nav-icon nav-icon-sm ms-auto">
-                <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
-                <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
-              </nav>
-            </div><!-- card-header -->
-            <div class="card-body">
-              <div class="divider divider-start fw-medium mt-0"><span>Today, October 20</span></div>
-              <ul class="list-group list-group-one">
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-success text-success"><i class="ri-coin-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Received Bitcoin</h6>
-                    <small>Received via PayPal</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">+0.01084 BTC</h6>
-                    <small class="text-success">+25.60 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-primary text-primary"><i class="ri-arrow-right-up-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Sent Bitcoin</h6>
-                    <small>To Bitcoin Address</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">-0.00029 BTC</h6>
-                    <small class="text-danger">-11.48 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-info text-info"><i class="ri-shopping-basket-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Purchased Ethereum</h6>
-                    <small>Purchased using PayPal</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">+0.02115 ETH</h6>
-                    <small class="text-success">+21.50 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-info text-info"><i class="ri-shopping-basket-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Purchased Bitcoin</h6>
-                    <small>Purchased using Debit Card</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">+0.0005 BTC</h6>
-                    <small class="text-success">+18.30 USD</small>
-                  </div>
-                </li>
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-primary text-primary"><i class="ri-arrow-right-up-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Sent Bitcoin</h6>
-                    <small>To Bitcoin Address</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">-0.00040 BTC</h6>
-                    <small class="text-danger">-18.50 USD</small>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="divider divider-start"><span class="fw-medium">Yesterday, October 19</span></div>
-              <ul class="list-group list-group-one">
-                <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                  <div class="avatar border border-2 border-success text-success"><i class="ri-coin-line"></i></div>
-                  <div>
-                    <h6 class="mb-0">Received Bitcoin</h6>
-                    <small>Received via PayPal</small>
-                  </div>
-                  <div class="ms-auto text-end">
-                    <h6 class="ff-numerals mb-0">+0.01084 BTC</h6>
-                    <small class="text-success">+25.60 USD</small>
-                  </div>
-                </li>
-              </ul>
+                </div><!-- col -->
+              </div><!-- row -->
             </div><!-- card-body -->
           </div><!-- card -->
         </div><!-- col -->
@@ -909,9 +716,13 @@
     </div><!-- main -->
 
 
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../lib/apexcharts/apexcharts.min.js"></script>
 
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/db.data.js"></script>
-    <script src="../assets/js/db.crypto.js"></script>
+    <script src="../assets/js/db.finance.js"></script>
   </body>
 </html>
