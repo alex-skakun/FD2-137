@@ -16,7 +16,11 @@ const mainEl = document.getElementById("main");
 //   }
 // });
 
+<<<<<<< HEAD
 const fragment = createDocumentFragment();
+=======
+const fragment = document.createDocumentFragment();
+>>>>>>> d12f5e9803d02bf97ac0cbe11c13093014409a62
 
 COLORS.forEach((color) => {
   fragment.appendChild(createElementByColor(color));
