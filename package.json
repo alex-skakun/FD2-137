@@ -1,6 +1,7 @@
 {
   "name": "fd2-137",
   "version": "1.0.0",
-  "dependencies": {
-  }
+  "workspaces": [
+    "./homework-7"
+  ]
 }
