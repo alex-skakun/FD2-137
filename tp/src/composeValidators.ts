@@ -1,7 +1,7 @@
-import { ValidatorFunction, requiredText } from "./ValidatorFunction";
+import { ValidatorFunction } from "./ValidatorFunction";
 import { ValidatorResult } from "./ValidatorResult";
 
-export function composeValidator<T>(
+export function composeValidators<T>(
   ...validators: ValidatorFunction<T>[]
 ): ValidatorFunction<T> {
   return (value: T): ValidatorResult => {
@@ -15,9 +15,3 @@ export function composeValidator<T>(
     return null;
   };
 }
-
-const requiredFio = composeValidator(requiredText, (value) =>
-  value.length <= 50 ? null : { maxLength: true }
-);
-
-
