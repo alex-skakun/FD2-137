@@ -21,17 +21,22 @@
 Каждое следующее преобразование должно запускаться только после того, как завершилось предыдущее.
 
 #### Пример:
-```javascript
-import {AsyncArray} from './AsyncArray.mjs';
 
-const asyncTransformation = (el, index, asyncArray) => new Promise((resolve, reject) => {
-    // любое асинхронное преобразование
+```javascript
+import { AsyncArray } from './AsyncArray.js';
+
+const asyncTransformation = (el, index, asyncArray) => new Promise((
+  resolve,
+  reject
+) => {
+  // любое асинхронное преобразование
 });
 const asyncArray = new AsyncArray(1, 2, 3);
 
-asyncArray.serialMap(asyncTransformation).then(result => {
+asyncArray.serialMap(asyncTransformation)
+  .then(result => {
     // result - экземпляр AsyncArray с результатами преобразований
-});
+  });
 ```
 
 ## Задание №2
