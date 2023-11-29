@@ -1,0 +1,11 @@
+html {
+  font-family: sans-serif; }
+
+.main {
+  display: flex;
+  flex-direction: column; }
+  .main input {
+    width: 20%;
+    margin: 10px 10px; }
+
+/*# sourceMappingURL=style.css.map */
