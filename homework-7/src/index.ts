@@ -2,11 +2,11 @@ import './style.scss'; // можно удалить, если не нужны с
 
 
 import { FormValidator } from "./FormValidator";
-import { maxLength,  requiredText, requiredAge, requiredGender } from "./validators";
+import { maxLength,  requiredText, requiredAge} from "./validators";
 
 const userDataForm = document.forms.namedItem('userData');
 
-interface userData {
+export interface userData {   
     lastName: string,
     firstName: string,
     middleName: string,
@@ -32,7 +32,7 @@ const userDataValidator = new FormValidator<userData>({
     ],
 
     gender: [
-        requiredGender        
+        requiredText  
     ]
 }
 
@@ -49,10 +49,44 @@ userDataForm?.addEventListener('submit', (event) => {
         middleName: formData.get('middleName') as string,
 
         age: Number(formData.get('age')),
-        gender: formData.get('middleName') as string,               
+        gender: formData.get('gender') as string,               
     };
 
     const errors = userDataValidator.validate(userData);
+
+    //    for (const [key:string] in userData)
+    // {
+    //     let lab = document.getElementById(`error-${key}`);
+    //     debugger;
+
+    //     if(errors)
+    //     {
+    //       if(errors[key])
+    //       {
+
+    //       }
+
+    //     }
+    //     else{
+    //         lab?.style.display = 'none';
+    //     }
+    // }
+
+    if(!errors)
+    {
+        let lab_user_data = document.getElementById("user-data");
+
+        if(lab_user_data){
+            lab_user_data.innerHTML =  `<pre>
+            ФИО : ${userData.lastName} ${userData.firstName} ${userData.middleName}
+            Возраст : ${userData.age} 
+            Пол : ${userData.gender}   </pre>         
+            `
+            
+            lab_user_data.style.display = "block";
+        }
+    }
+    
     
     console.log(errors);
     console.log(userData);

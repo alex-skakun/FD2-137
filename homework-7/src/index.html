@@ -9,17 +9,59 @@
 <body>
 
   <form name="userData" novalidate class="main">
-    <legend> Анкета пользователя</legend>
-    <input type="text" name="lastName" placeholder="Введите вашу фамимлию">
-    <input type="text" name="firstName" placeholder="Введите ваше имя">
-    <input type="text" name="middleName" placeholder="Введите ваше отчество">
+    <h2> Анкета пользователя</h2>
 
-    <input type="number" name="age" placeholder="Введите ваш возраст">
-    <input type="text" name="gender" size="1" placeholder="Введите ваш пол (допустимые варианты м/ж)">
+    <div class="form-row">
+      <label>Имя</label>
+      <input type="text" name="firstName" placeholder="Введите ваше имя">
+    </div>
+    <label id="error-firstName" class="error">*поле обязательно для заполнения</label>
 
-    <footer>
-      <button type="submit">Отправить данные</button>
-    </footer>
+    <div class="form-row">
+      <label>Фамилия</label>
+      <input type="text" name="lastName" placeholder="Введите вашу фамимлию">
+    </div>
+    <label id="error-lastName" class="error">*поле обязательно для заполнения</label>
+
+    <div class="form-row">
+      <label>Отчество</label>
+      <input type="text" name="middleName" placeholder="Введите ваше отчество">
+    </div>
+    <label id="error-middleName" class="error">*поле обязательно для заполнения</label>
+
+    <div class="form-row">
+      <label>Возраст</label>
+      <input type="number" name="age" placeholder="Введите ваш возраст">
+    </div>
+    <label id="error-age" class="error">*диапазон значений 0-150 лет</label>
+
+    <div class="gender">
+      <label class="caption">Пол</label>
+
+      <div>
+        <div class="age-radio">
+          <label>
+            <input type="radio" name="gender" value="Мужчина" checked>
+            Мужчина
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="radio" name="gender" value="Женщина">
+            Женщина
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit">Отправить</button>
+    </div>
+
+    <div class="summery">
+      <label id="user-data"></label>      
+    </div>
 
   </form>
 </body>
