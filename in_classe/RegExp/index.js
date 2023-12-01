@@ -18,15 +18,15 @@
 //   );
 // }
 
-function t(text: String, data: Record<String, unknown>): string {
-  return text.replace(/{\{(\w+)}\}/g, (match, key) => {
-    if (Object.hasOwn(data, key)) {
-      return String(data[key]);
-    } else {
-      return match;
-    }
-  });
-}
+// function t(text: String, data: Record<String, unknown>): string {
+//   return text.replace(/{\{(\w+)}\}/g, (match, key) => {
+//     if (Object.hasOwn(data, key)) {
+//       return String(data[key]);
+//     } else {
+//       return match;
+//     }
+//   });
+// }
 function t(text, data) {
   return text.replace(/{\{(\w+)}\}/g, (match, key) => {
     return Object.hasOwn(data, key) ? String(data[key]) : match;
