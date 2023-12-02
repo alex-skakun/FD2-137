@@ -11,18 +11,12 @@ function printWithDelay(from, to) {
       printWithDelay(listOfWords.join(" "), to);
     }
     if (to.length >= listOfWords.length && to.length > 1) {
-      const lengthDifference = to.length - from.length;
-      const useLength = to.length - lengthDifference;
-      to.length = useLength;
-      to;
       to.reverse().pop();
       printWithDelay(listOfWords.join(" "), to.reverse());
     }
-    if (listOfWords.length < 1) {
-      to.reverse().pop();
-    }
-    if (to.length === 1) {
-      printWithDelay(listOfWords, to);
+    if (listOfWords.length < 1 && to.length === 1) {
+      to.pop();
+      listOfWords;
     }
   }, to[0] * 1000);
 }
