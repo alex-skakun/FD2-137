@@ -1,5 +1,5 @@
 import { ValidatorFunction } from "./ValidatorFunctionType";
-import { Gender } from "./ValidatortTypes";
+
 
 export const nonEmptyArray: ValidatorFunction<unknown[]> = (value) => {
     return value.length ? null : { nonEmptyArray: true };
@@ -11,8 +11,9 @@ export const requiredText: ValidatorFunction<string> = (value) => {
 }
 
 export const requiredAge: (minAge: number, maxAge: number) => ValidatorFunction<number> = (minAge, maxAge) => {
-    return (value) => {    
-        return value >= minAge && value <= maxAge ? null : { requiredAge: true };;
+    return (value) => {   
+        const age =  Number(value);
+        return age >= minAge && age <= maxAge ? null : { requiredAge: true };
     }
 }
 

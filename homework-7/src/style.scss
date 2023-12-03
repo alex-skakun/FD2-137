@@ -18,25 +18,25 @@ html {
 
     label {
       padding: .5em 1em .5em 0;
-      flex-basis: 4%;
+      flex-basis: 6%;
     }
-    input {
-     
-    }
+
   }
-  .error{
+
+  .error {
     color: red;
     margin-bottom: 20px;
     visibility: hidden;
   }
+
   .gender {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     margin-bottom: 20px;
 
-    .caption{
-     flex-basis: 5%;
+    .caption {
+      flex-basis: 7%;
     }
 
     div {

@@ -2,16 +2,19 @@ import './style.scss'; // можно удалить, если не нужны с
 
 
 import { FormValidator } from "./FormValidator";
-import { maxLength,  requiredText, requiredAge} from "./validators";
+import { maxLength, requiredText, requiredAge } from "./validators";
+const M_RETIRED = 63;
+const F_RETIRED = 58;
 
 const userDataForm = document.forms.namedItem('userData');
+let isRetired = '';
 
-export interface userData {   
+export interface userData {
     lastName: string,
     firstName: string,
     middleName: string,
     age: number,
-    gender: string 
+    gender: string
 }
 
 const userDataValidator = new FormValidator<userData>({
@@ -24,15 +27,15 @@ const userDataValidator = new FormValidator<userData>({
     ],
 
     middleName: [
-        requiredText,        
+        requiredText,
     ],
 
     age: [
-        requiredAge(0,150)        
+        requiredAge(0, 150)
     ],
 
     gender: [
-        requiredText  
+        requiredText
     ]
 }
 
@@ -49,12 +52,12 @@ userDataForm?.addEventListener('submit', (event) => {
         middleName: formData.get('middleName') as string,
 
         age: Number(formData.get('age')),
-        gender: formData.get('gender') as string,               
+        gender: formData.get('gender') as string,
     };
 
     const errors = userDataValidator.validate(userData);
 
-    //    for (const [key:string] in userData)
+    //    for (const key in userData)
     // {
     //     let lab = document.getElementById(`error-${key}`);
     //     debugger;
@@ -72,22 +75,31 @@ userDataForm?.addEventListener('submit', (event) => {
     //     }
     // }
 
-    if(!errors)
-    {
-        let lab_user_data = document.getElementById("user-data");
 
-        if(lab_user_data){
-            lab_user_data.innerHTML =  `<pre>
-            ФИО : ${userData.lastName} ${userData.firstName} ${userData.middleName}
-            Возраст : ${userData.age} 
-            Пол : ${userData.gender}   </pre>         
+    if ((userData.gender === 'Мужчина' && userData.age >= M_RETIRED) || (userData.gender === 'Женщина' && userData.age >= F_RETIRED))
+     { isRetired = 'Да';}
+    else  
+     { isRetired = 'Нет';}
+
+    let div_user_data = document.getElementById("user-data");
+
+    if (div_user_data) {
+        if (!errors) {
+            div_user_data.innerHTML = `
+            <div>
+            <p> ФИО : ${userData.lastName} ${userData.firstName} ${userData.middleName}</p>
+            <p>Возраст : ${userData.age} </p>
+            <p>Пол : ${userData.gender}</p>
+            <p>На пенсии : ${isRetired}</p>
+          </div>      
             `
-            
-            lab_user_data.style.display = "block";
+        }
+        else
+        {
+            div_user_data.innerHTML = '';
         }
     }
-    
-    
+   
     console.log(errors);
     console.log(userData);
 })
