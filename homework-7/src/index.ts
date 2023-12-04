@@ -1,8 +1,7 @@
-// import './style.scss'; // можно удалить, если не нужны стили
 import { FormValidateResult, formValidator } from './formValidator';
-import { nonEmptyArray, requiredText, validAge } from './validators';
+import { nonEmptyArray, requiredText, requiredAge } from './validators';
 
-const userForm = document.forms.namedItem('user-form');
+const userForm = document.forms.namedItem('user-form') as HTMLFormElement | null;
 
 interface UserForm {
     customerName: string;
@@ -15,25 +14,28 @@ interface UserForm {
 const userFormValidator = new formValidator<UserForm>({
     customerName: [
         nonEmptyArray,
+        requiredText,
     ],
     customerFathersName: [
+        nonEmptyArray,
         requiredText,
     ],
     customerSurname: [
+        nonEmptyArray,
         requiredText,
     ],
     customerAge: [
-        validAge,
+        requiredAge(0, 150)
     ],
     sex: [
-        requiredText,
+        requiredText
     ],
 });
 
 userForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(userForm);
+    const formData = new FormData(userForm as HTMLFormElement);
 
     const userFormData: UserForm = {
         customerName: String(formData.get('customerName')),
@@ -43,32 +45,20 @@ userForm?.addEventListener('submit', (event) => {
         sex: String(formData.get('sex')),
     };
 
-    const errors: FormValidateResult<UserForm> | null = userFormValidator.validate(userFormData);
+    const errors = userFormValidator.validate(userFormData);
 
-    const nameError = document.getElementById('nameError') as HTMLParagraphElement | null;
-    if (nameError) {
-        nameError.style.visibility = errors?.customerName ? 'visible' : 'hidden';
-    }
-
-    const surnameError = document.getElementById('surnameError') as HTMLParagraphElement | null;
-    if (surnameError) {
-        surnameError.style.visibility = errors?.customerSurname ? 'visible' : 'hidden';
-    }
-
-    const fathersNameError = document.getElementById('fathersNameError') as HTMLParagraphElement | null;
-    if (fathersNameError) {
-        fathersNameError.style.visibility = errors?.customerFathersName ? 'visible' : 'hidden';
-    }
-
-    const ageError = document.getElementById('ageError') as HTMLParagraphElement | null;
-    if (ageError) {
-        ageError.style.visibility = errors?.customerAge ? 'visible' : 'hidden';
-    }
-
-    const sexError = document.getElementById('sexError') as HTMLParagraphElement | null;
-    if (sexError) {
-        sexError.style.visibility = errors?.sex ? 'visible' : 'hidden';
-    }
+    handleFieldError('nameError', errors?.customerName);
+    handleFieldError('surnameError', errors?.customerSurname);
+    handleFieldError('fathersNameError', errors?.customerFathersName);
+    handleFieldError('ageError', errors?.customerAge);
+    handleFieldError('sexError', errors?.sex);
 
     console.log(errors);
 });
+
+function handleFieldError(fieldId: string, error: unknown) {
+    const errorElement = document.getElementById(fieldId) as HTMLElement | null;
+    if (errorElement) {
+        errorElement.style.visibility = error ? 'visible' : 'hidden';
+    }
+}
