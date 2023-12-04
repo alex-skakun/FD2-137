@@ -7,12 +7,20 @@ function printWithDelay(from, to) {
     console.log(listOfWords[0]);
     listOfWords.reverse().pop();
     listOfWords.reverse();
-    if (listOfWords.length > 1 && to.length === 1) {
+    if (listOfWords.length >= to.length && to.length === 1) {
       printWithDelay(listOfWords.join(" "), to);
+    }
+    if (listOfWords.length > to.length && to.length > 1) {
+      to.reverse().pop();
+      printWithDelay(listOfWords.join(" "), to.reverse());
     }
     if (to.length >= listOfWords.length && to.length > 1) {
       to.reverse().pop();
       printWithDelay(listOfWords.join(" "), to.reverse());
+    }
+    if (to.length >= listOfWords.length && to.length > 1) {
+      to.pop();
+      listOfWords;
     }
     if (listOfWords.length < 1 && to.length === 1) {
       to.pop();
