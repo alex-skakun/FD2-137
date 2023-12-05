@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bold {
+        font-weight: bold;
+        color: brown;
+      }
+
+      [data-color] {
+        transition: background-color 1s linear;
+        margin-inline: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <form name="customerName" novalidate>
+        <div>
+          <label>
+            <span>Фамилия</span>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              autocomplete="given-name"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Имя</span>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              autocomplete="shipping street-address"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Отчество</span>
+            <input
+              type="text"
+              name="middleName"
+              id="middleName"
+              autocomplete="shipping street-address"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Возраст</span>
+            <input
+              type="text"
+              name="age"
+              id="age"
+              autocomplete="shipping street-address"
+            />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <span>Ваш пол</span>
+            <input
+              type="text"
+              name="sex"
+              id="sex"
+              autocomplete="shipping street-address"
+            />
+          </label>
+        </div>
+        <footer>
+          <button type="submit" name="submitButton">Заказать</button>
+        </footer>
+      </form>
+    </div>
+  </body>
+</html>

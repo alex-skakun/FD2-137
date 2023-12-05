@@ -23,6 +23,7 @@
 #### Пример:
 
 ```javascript
+<<<<<<< HEAD
 import { AsyncArray } from './AsyncArray.mjs';
 
 const asyncTransformation = (el, index, asyncArray) =>
@@ -34,6 +35,22 @@ const asyncArray = new AsyncArray(1, 2, 3);
 asyncArray.serialMap(asyncTransformation).then((result) => {
   // result - экземпляр AsyncArray с результатами преобразований
 });
+=======
+import { AsyncArray } from './AsyncArray.js';
+
+const asyncTransformation = (el, index, asyncArray) => new Promise((
+  resolve,
+  reject
+) => {
+  // любое асинхронное преобразование
+});
+const asyncArray = new AsyncArray(1, 2, 3);
+
+asyncArray.serialMap(asyncTransformation)
+  .then(result => {
+    // result - экземпляр AsyncArray с результатами преобразований
+  });
+>>>>>>> d784b9de7caeab640a4864fa472a43c5343e1139
 ```
 
 ## Задание №2
