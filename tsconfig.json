@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "references": [
+    { "path": "./homework-7/tsconfig.json" }
+  ]
+}
