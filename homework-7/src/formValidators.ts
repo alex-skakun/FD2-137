@@ -1,6 +1,6 @@
 import { composeValidators } from "./composeValidators";
-import { formValidatorConfiguration } from "./formValidatorConfiguration";
-import { validatorFunction } from "./validatorFunction";
+import { formValidatorConfiguration } from "./formValidatorsConfiguration";
+import { validatorFunction } from "./validatorsFunction";
 import { validatorResult } from "./validatorsResult";
 
 export type FormValidateResult<Data extends object> = Partial<{
@@ -15,8 +15,8 @@ export class formValidator<Data extends object> {
 
         for (const [key, value] of Object.entries(configuration)) {
             this.#validationMap.set(key, composeValidators(...value as validatorFunction<unknown>[]));
-        }
-    }
+        };
+    };
 
     validate(data: Data): FormValidateResult<Data> | null {
         const errors: FormValidateResult<Data>[] = [];
@@ -27,12 +27,21 @@ export class formValidator<Data extends object> {
             if (validator) {
                 const result = validator(value);
 
+                let mistaken = document.getElementById(`error-${propertyName}`);
+
                 if (result) {
                     errors.push({ [propertyName]: result } as FormValidateResult<Data>);
-                }
-            }
-        }
+                    if (mistaken) {
+                        mistaken.style.visibility = 'visible';
+                    };
+                } else {
+                    if (mistaken) {
+                        mistaken.style.visibility = 'hidden';
+                    };
+                };
+            };
+        };
 
         return errors.length ? Object.assign({}, ...errors) : null;
-    }
-}
+    };
+};

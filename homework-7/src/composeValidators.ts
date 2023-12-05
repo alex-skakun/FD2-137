@@ -1,7 +1,7 @@
-import { validatorFunction } from "./validatorFunction";
+import { validatorFunction } from "./validatorsFunction";
 import { validatorResult } from "./validatorsResult";
 
-export function composeValidators<T>(...validators: validatorFunction<T>[]): validatorFunction<T> {
+export function composeValidators<T> (...validators: validatorFunction<T>[]): validatorFunction<T> {
     return (value: T): validatorResult => {
         for (const validator of validators) {
             const result = validator(value);
@@ -13,4 +13,4 @@ export function composeValidators<T>(...validators: validatorFunction<T>[]): val
 
         return null;
     };
-}
+};

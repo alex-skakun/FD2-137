@@ -7,69 +7,66 @@
 </head>
 
 <style>
-  p {
+  .error {
     visibility: hidden;
   }
 </style>
 
 <body>
-  <div id="user-form">
-    <form name="user-validation" novalidate>
-      <fieldset>
-        <legend>Введите ваши данные</legend>
-        <div>
+
+  <form name="userForm" novalidate class="form">
+    <h2> Анкета пользователя</h2>
+    
+    <div class="userFormRow">
+      <label>Имя</label>
+      <input type="text" name="firstname" placeholder="Введите ваше имя">
+    </div>
+    <label id="error-firstname" class="error">*поле обязательно для заполнения</label>
+
+    <div class="userFormRow">
+      <label>Фамилия</label>
+      <input type="text" name="surname" placeholder="Введите вашу фамимлию">
+    </div>
+    <label id="error-surname" class="error">*поле обязательно для заполнения</label>
+
+    <div class="userFormRow">
+      <label>Отчество</label>
+      <input type="text" name="fathername" placeholder="Введите ваше отчество">
+    </div>
+    <label id="error-fathername" class="error">*поле обязательно для заполнения</label>
+
+    <div class="userFormRow">
+      <label>Возраст</label>
+      <input type="text" name="age" placeholder="Введите ваш возраст">
+    </div>
+    <label id="error-age" class="error">*возраст не соответствует значению от 0 до 150</label>
+
+    <div class="sex">
+      <label class="caption">Пол</label>
+      <div>
+        <div class="sexChoose">
           <label>
-            <span>Имя</span>
-            <input type="text" required name="customerName" autocomplete="name">
+            <input type="radio" name="sex" value="Мужчина" checked>
+            Мужчина
           </label>
-          <p id="nameError">поле обязательно для заполнения</p>
         </div>
         <div>
           <label>
-            <span>Фамилия</span>
-            <input type="text" required name="customerSurname" autocomplete="name">
+            <input type="radio" name="sex" value="Женщина">
+            Женщина
           </label>
-          <p id="surnameError">поле обязательно для заполнения</p>
         </div>
-        <div>
-          <label>
-            <span>Отчество</span>
-            <input type="text" required name="customerFathersName" autocomplete="name">
-          </label>
-          <p id="fathersNameError">поле обязательно для заполнения</p>
-        </div>
-        <div>
-          <label>
-            <span>Возраст</span>
-            <input type="number" required name="customerAge">
-          </label>
-          <p id="ageError">значение ниже допустимого</p>
-        </div>
-        <fieldset>
-          <legend>Пол</legend>
-          <div>
-            <label>
-              <input type="radio" required name="sex" value="male">
-              <span>Мужчина</span>
-            </label>
-          </div>
-          <div>
-            <label>
-              <input type="radio" required name="sex" value="female">
-              <span>Женщина</span>
-            </label>
-            <p id="sexError">поле обязательно для заполнения</p>
-          </div>
-        </fieldset>
-      </fieldset>
-      <footer>
-        <button type="submit">
-          Мы всё?
-        </button>
-        <div id="user-data"></div>
-      </footer>
-    </form>
-  </div>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Отправить</button>
+    </div>
+
+    <div id="user-form">
+    </div>
+
+  </form>
+
 </body>
 
 </html>

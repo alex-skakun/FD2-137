@@ -1,64 +1,80 @@
-import { FormValidateResult, formValidator } from './formValidator';
-import { nonEmptyArray, requiredText, requiredAge } from './validators';
+import { formValidator } from './formValidators';
+import './style.scss'; // можно удалить, если не нужны стили
+import { requiredAge, requiredText } from './validators';
+const MALERETIREMENTAGE = 63;
+const FEMALERETIREMENTAGE = 58;
 
-const userForm = document.forms.namedItem('user-form') as HTMLFormElement | null;
+const userDataForm = document.forms.namedItem('userForm');
 
-interface UserForm {
-    customerName: string;
-    customerSurname: string;
-    customerFathersName: string;
-    customerAge: number;
-    sex: string;
+let isRetired = '';
+
+export interface userForm {
+    surname: string,
+    firstname: string,
+    fathername: string,
+    age: number,
+    sex: string
 }
 
-const userFormValidator = new formValidator<UserForm>({
-    customerName: [
-        nonEmptyArray,
-        requiredText,
-    ],
-    customerFathersName: [
-        nonEmptyArray,
-        requiredText,
-    ],
-    customerSurname: [
-        nonEmptyArray,
-        requiredText,
-    ],
-    customerAge: [
-        requiredAge(0, 150)
-    ],
-    sex: [
+const userDataValidator = new formValidator<userForm>({
+    surname: [
         requiredText
     ],
-});
 
-userForm?.addEventListener('submit', (event) => {
+    firstname: [
+        requiredText
+    ],
+
+    fathername: [
+        requiredText,
+    ],
+
+    age: [
+        requiredAge(0, 150)
+    ],
+
+    sex: [
+        requiredText
+    ]
+}
+);
+
+userDataForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(userForm as HTMLFormElement);
+    const formData = new FormData(userDataForm);
 
-    const userFormData: UserForm = {
-        customerName: String(formData.get('customerName')),
-        customerSurname: String(formData.get('customerSurname')),
-        customerFathersName: String(formData.get('customerFathersName')),
-        customerAge: parseInt(String(formData.get('customerAge')), 10),
-        sex: String(formData.get('sex')),
+    const userData: userForm = {
+        surname: formData.get('surname') as string,
+        firstname: formData.get('firstname') as string,
+        fathername: formData.get('fathername') as string,
+        age: Number(formData.get('age')),
+        sex: formData.get('sex') as string,
     };
 
-    const errors = userFormValidator.validate(userFormData);
+    const errors = userDataValidator.validate(userData);
 
-    handleFieldError('nameError', errors?.customerName);
-    handleFieldError('surnameError', errors?.customerSurname);
-    handleFieldError('fathersNameError', errors?.customerFathersName);
-    handleFieldError('ageError', errors?.customerAge);
-    handleFieldError('sexError', errors?.sex);
+    if ((userData.sex === 'Мужчина' && userData.age >= MALERETIREMENTAGE) || (userData.sex === 'Женщина' && userData.age >= FEMALERETIREMENTAGE)) { isRetired = 'Да'; }
+    else { isRetired = 'Нет'; }
+
+    let div_user_data = document.getElementById("user-form");
+
+    if (div_user_data) {
+        if (!errors) {
+            div_user_data.innerHTML = `
+            <div>
+            <p>ФИО : ${userData.surname} ${userData.firstname} ${userData.fathername}</p>
+            <p>Возраст : ${userData.age} </p>
+            <p>Пол : ${userData.sex}</p>
+            <p>На пенсии : ${isRetired}</p>
+          </div>      
+            `
+        }
+        else {
+            div_user_data.innerHTML = '';
+        }
+    }
 
     console.log(errors);
-});
-
-function handleFieldError(fieldId: string, error: unknown) {
-    const errorElement = document.getElementById(fieldId) as HTMLElement | null;
-    if (errorElement) {
-        errorElement.style.visibility = error ? 'visible' : 'hidden';
-    }
-}
+    console.log(userData);
+})
