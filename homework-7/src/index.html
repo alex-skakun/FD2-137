@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework 7</title>
 </head>
+
 <body>
+  <form name="user-data" novalidate>
+    <figure>
+      <figcaption>
+        <label>
+          <span>Фамилия</span>
+          <input type="text" name="surname" value="" required>         
+        </label>
+        <ul id = "surnameError" class="error-list"></ul>
+      </figcaption>
+      <figcaption>
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" value="" required>        
+        </label>
+        <ul id = "nameError" class="error-list"></ul>
+      </figcaption>
+      <figcaption>
+        <label>
+          <span>Отчество</span>
+          <input type="text" name="middleName" value="" required>        
+          <ul id = "middleNameError" class="error-list"></ul>
+        </label>
+      </figcaption>
+    </figure>
+    <figure>
+      <figcaption>
+        <label>
+          <span>Возраст</span>
+          <input type="string" name="age" value="" required>        
+        </label>
+        <ul id = "ageError" class="error-list"></ul>
+      </figcaption>
+    <fieldset>
+      <legend>Пол</legend>
+      <div>
+        <label>
+          <input type="radio" name="sex" value="male" checked>
+          <span>Мужчина</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="sex" value="female">
+          <span>Женщина</span>
+        </label>
+      </div>
+      <ul id = "sexError" class="error-list"></ul>
+    </fieldset>
+    <footer>
+      <button type="submit">Отправить</button>
+      <div id = "information">
+      </div>
+    </footer>
+  </form>
+</body>
+
+</html>
 
 </body>
+
 </html>
