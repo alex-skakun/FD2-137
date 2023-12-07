@@ -36,6 +36,8 @@ export class BrowserlocalStorage<
       ...data,
       [definedId]: { ...value, id: definedId },
     });
+
+    return definedId;
   }
   async delete(id: Id): Promise<void> {
     await this.ready;
