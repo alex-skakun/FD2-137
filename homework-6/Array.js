@@ -1,7 +1,6 @@
-import { AsyncArray } from "./AsyncArray";
-
 ("use strict");
-class Array {
+
+export default class Array {
   value;
 
   constructor(value) {
@@ -12,5 +11,3 @@ class Array {
     alert(this.value);
   }
 }
-
-
