@@ -1,9 +1,6 @@
-import { AbstractStorage } from "./AbstractStorage";
+import { AbstractStorage } from './AbstractStorage';
 
-export class BrowserlocalStorage<
-  Value extends { id: Id },
-  Id extends string | number
-> extends AbstractStorage<Value, Id> {
+export class BrowserLocalStorage<Value extends { id: Id }, Id extends string | number> extends AbstractStorage<Value, Id> {
   readonly #storageKey: string;
   readonly #idGenerator: () => Id;
 
@@ -13,12 +10,11 @@ export class BrowserlocalStorage<
     this.#idGenerator = idGenerator;
   }
 
-  get(id: Id): Promise<Value | null> {
-    return this.ready.then(() => {
-      const data = this.#extractDataFromStorage();
+  async get(id: Id): Promise<Value | null> {
+    await this.ready;
+    const data = this.#extractDataFromStorage();
 
-      return data[id] ?? null;
-    });
+    return data[id] ?? null;
   }
 
   async getAll(): Promise<Value[]> {
@@ -27,18 +23,23 @@ export class BrowserlocalStorage<
 
     return Object.values(data);
   }
-  async write(value: Omit<Value, "id"> & { id?: Id }, id?: Id): Promise<Id> {
+
+  async write(value: Omit<Value, 'id'> & { id?: Id }, id?: Id): Promise<Id> {
     await this.ready;
     const data = this.#extractDataFromStorage();
     const definedId = value.id ?? id ?? this.#idGenerator();
 
     this.#saveDataToStorage({
       ...data,
-      [definedId]: { ...value, id: definedId },
+      [definedId]: {
+        ...value,
+        id: definedId,
+      },
     });
 
     return definedId;
   }
+
   async delete(id: Id): Promise<void> {
     await this.ready;
     const data = this.#extractDataFromStorage();
@@ -53,7 +54,7 @@ export class BrowserlocalStorage<
     return storageData ? JSON.parse(storageData) : {};
   }
 
-  #saveDataToStorage(data: Record<Id, Value>): void {
+  #saveDataToStorage(data: Record<Id, Value>): void  {
     const jsonData = JSON.stringify(data);
 
     localStorage.setItem(this.#storageKey, jsonData);
