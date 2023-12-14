@@ -1,22 +1,27 @@
 "use strict";
 
-// class Array {
-//   value;
+class Array {
+  value;
 
-//   constructor(value) {
-//     this.value = value;
-//   }
+  constructor(value) {
+    this.value = value;
+  }
 
-//   hello() {
-//     alert(this.value);
-//   }
-// }
+  map() {
+    alert(this.value);
+  }
+}
 
-// new Array();
+new Array();
 
 class AsyncArray extends Array {
   constructor(asyncStr) {
     super(asyncStr);
+  }
+
+  map() {
+    alert(this.value);
+    this.serialMap();
   }
 
   serialMap() {}
@@ -24,19 +29,21 @@ class AsyncArray extends Array {
 
 const asyncArray = new AsyncArray(1, 2, 3);
 
-const asyncTransformation = (asynsStr) => {
-  const asynsArr = asynsStr.split();
+const asynsArr = asynsStr.split();
 
-  new Promise((resolve) => {
-    setTimeout(() => resolve(el), 1000);
+const asyncTransformation = (asynsArr) => {
+  let result = asynsArr.map((el) => {
+    return new Promise((resolve) => {
+      resolve(el + 2);
+    });
   });
+  return result;
 
   // любое асинхронное преобразование
 };
 
 asyncArray.serialMap(asyncTransformation).then((result) => {
-  return (result = asynsArr.map((el) => {
-    el + 1;
-  }));
   // result - экземпляр AsyncArray с результатами преобразований
 });
+
+

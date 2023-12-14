@@ -39,6 +39,7 @@ asyncArray.serialMap(asyncTransformation)
   });
 ```
 
+
 ## Задание №2
 
 Создайте функцию `_async()`.
