@@ -12,6 +12,7 @@
     "node_modules"
   ],
   "references": [
-    { "path": "./homework-7/tsconfig.json" }
+    { "path": "./homework-7/tsconfig.json" },
+    { "path": "./classworks/homework-7-solved/tsconfig.json" }
   ]
 }
