@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 7</title>
+</head>
+<body>
+<form novalidate name="personForm" autocomplete="off">
+  <label for="firstNameInput" class="inline-label">Имя</label>
+  <div class="input-wrapper">
+    <input type="text" name="firstName" id="firstNameInput">
+  </div>
+  <label for="lastNameInput" class="inline-label">Фамилия</label>
+  <div class="input-wrapper">
+    <input type="text" name="lastName" id="lastNameInput">
+  </div>
+  <label for="middleNameInput" class="inline-label">Отчество</label>
+  <div class="input-wrapper">
+    <input type="text" name="middleName" id="middleNameInput">
+  </div>
+  <label for="ageInput" class="inline-label">Возраст</label>
+  <div class="input-wrapper">
+    <input type="number" name="age" id="ageInput">
+  </div>
+  <label class="inline-label">Пол</label>
+  <div class="input-wrapper">
+    <Label class="block-label">
+      <input type="radio" name="sex" value="m">
+      <span>Мужчина</span>
+    </Label>
+    <Label class="block-label">
+      <input type="radio" name="sex" value="f">
+      <span>Женщина</span>
+    </Label>
+  </div>
+  <footer>
+    <button type="submit">Отправить</button>
+  </footer>
+</form>
+</body>
+</html>

@@ -2,6 +2,7 @@
   "name": "fd2-137",
   "version": "1.0.0",
   "workspaces": [
-    "./homework-7"
+    "./homework-7",
+    "./classworks/homework-7-solved"
   ]
 }
