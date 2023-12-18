@@ -28,22 +28,27 @@ class AsyncArray extends Array {
 }
 
 const asyncArray = new AsyncArray(1, 2, 3);
-
 const asynsArr = asynsStr.split();
+const resArr = [];
 
 const asyncTransformation = (asynsArr) => {
-  let result = asynsArr.map((el) => {
+  
+  setTimeout(() => {
     return new Promise((resolve) => {
-      resolve(el + 2);
+      resolve(asynsArr[0]);
+    }).then((elArr) => {
+      const result = resArr.push(elArr + 2);
+      asynsArr.length !== 0
+        ? setTimeout(() => {
+            console.log(elArr + 2);
+            asynsArr.reverse().pop();
+            asyncTransformation(asynsArr.reverse());
+          }, 2_000)
+        : console.log(result);
     });
-  });
-  return result;
-
-  // любое асинхронное преобразование
+  }, 1_000);
 };
 
 asyncArray.serialMap(asyncTransformation).then((result) => {
   // result - экземпляр AsyncArray с результатами преобразований
 });
-
-
