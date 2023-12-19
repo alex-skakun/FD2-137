@@ -32,12 +32,13 @@ const asynsArr = asynsStr.split();
 const resArr = [];
 
 const asyncTransformation = (asynsArr) => {
-  
   setTimeout(() => {
     return new Promise((resolve) => {
       resolve(asynsArr[0]);
     }).then((elArr) => {
-      const result = resArr.push(elArr + 2);
+      if (asynsArr.length !== 0) resArr.push(elArr + 2);
+      const result = resArr;
+
       asynsArr.length !== 0
         ? setTimeout(() => {
             console.log(elArr + 2);
@@ -50,5 +51,5 @@ const asyncTransformation = (asynsArr) => {
 };
 
 asyncArray.serialMap(asyncTransformation).then((result) => {
-  // result - экземпляр AsyncArray с результатами преобразований
+  
 });
