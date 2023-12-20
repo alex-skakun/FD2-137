@@ -1,4 +1,4 @@
-class AsyncArray extends Array{
+class AsyncArray extends Array {
   serialMap(transformFn) {
     let promise = Promise.resolve(new AsyncArray(this.length));
 
