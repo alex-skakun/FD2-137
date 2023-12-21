@@ -5,34 +5,32 @@ class AsyncArray extends Array {
     const resArr = [];
 
     let promise = Promise.resolve();
-    promise = promise.then((elArr) => {
-      return (asyncTransformation = (el, index, asynsArr) => {
-        if (asynsArr.length !== 0) resArr.push(elArr);
+    for (let i = 0; i < this.length; i++) {
+      promise = promise
+        .then(() => {
+          return asyncTransformation(this[i], i, this);
+        })
+        .then((el) => {
+          resArr.push(el);
+        });
+    }
 
-        asynsArr.length !== 0
-          ? promise.then(() => {
-              console.log(elArr);
-            })
-          : promise.then(() => new AsyncArray(...resArr));
-      });
-    });
+    return promise.then(() => new AsyncArray(...resArr));
   }
 }
 
-const asyncTransformation = (el, index, asynsArr) =>
+const asyncTransformation = (el, index, asyncArray) =>
   new Promise((resolve) => {
     // Любое асинхронное преобразование
     setTimeout(() => {
-      resolve(el[0] * 2);
-      if (asynsArr.length !== 0) asynsArr.reverse().pop();
-      asyncTransformation(asynsArr.reverse());
+      resolve(el + 2);
     }, 2000);
   });
 
-const asyncArray = new AsyncArray(1, 2, 3);
+const asyncArray = new AsyncArray([1, 2, 3]);
 
-asyncArray.serialMap(asyncTransformation).then((resArr) => {
-  console.log(resArr);
+asyncArray.serialMap(asyncTransformation).then((el) => {
+  console.log(el);
 });
 
 // const asyncArray = new AsyncArray(1, 2, 3);

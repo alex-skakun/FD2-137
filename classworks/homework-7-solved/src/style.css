@@ -1,0 +1,33 @@
+html {
+  font-family: sans-serif;
+}
+
+form[name=personForm] {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr);
+  gap: 20px;
+}
+form[name=personForm] .inline-label {
+  grid-column: 1/span 1;
+}
+form[name=personForm] .input-wrapper {
+  grid-column: 2/span 1;
+}
+form[name=personForm] .block-label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+form[name=personForm] .error-message {
+  color: red;
+  margin: 7px;
+  font-size: 0.7em;
+  padding: 0;
+}
+form[name=personForm] footer {
+  display: contents;
+}
+form[name=personForm] footer button[type=submit] {
+  grid-column: 2/span 1;
+  justify-self: start;
+}/*# sourceMappingURL=style.css.map */
