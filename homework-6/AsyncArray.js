@@ -1,14 +1,14 @@
 "use strict";
 
 class AsyncArray extends Array {
-  serialMap(asyncTransformation) {
+  serialMap() {
     const resArr = [];
 
     let promise = Promise.resolve();
-    for (let i = 0; i < this.length; i++) {
+    for (const el of asyncArray) {
       promise = promise
         .then(() => {
-          return asyncTransformation(this[i], i, this);
+          return asyncTransformation(el);
         })
         .then((el) => {
           resArr.push(el);
@@ -19,18 +19,18 @@ class AsyncArray extends Array {
   }
 }
 
-const asyncTransformation = (el, index, asyncArray) =>
+const asyncTransformation = (el) =>
   new Promise((resolve) => {
-    // Любое асинхронное преобразование
     setTimeout(() => {
       resolve(el + 2);
+      console.log(el + 2);
     }, 2000);
   });
 
-const asyncArray = new AsyncArray([1, 2, 3]);
+const asyncArray = new AsyncArray(1, 2, 3);
 
-asyncArray.serialMap(asyncTransformation).then((el) => {
-  console.log(el);
+asyncArray.serialMap().then((res) => {
+  console.log(res);
 });
 
 // const asyncArray = new AsyncArray(1, 2, 3);
