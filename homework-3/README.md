@@ -24,7 +24,7 @@ const data = [
 const textTable = createTextTable(columns, data);
 
 console.log(textTable);
-// результат в консоли:
+// результат в консоли:+
 // ┌────────┬────┬───────┐
 // │ Хлеб   │ 12 │ 14.99 │
 // ├────────┼────┼───────┤

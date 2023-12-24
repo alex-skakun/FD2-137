@@ -1,3 +1,44 @@
 html {
   font-family: sans-serif;
 }
+body{
+  box-sizing: border-box;
+  margin: 150px;
+  padding: 0;
+  background-color: rgb(240, 224, 181);
+}
+
+.formblock {
+  margin: 20px;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+button {
+  margin: 30px;
+  padding: 5px 20px;
+  border-radius: 6px;
+  align-self: center;
+  background-color: rgb(181, 240, 201);
+}
+.output {
+  width: 350px;
+  padding: 15px;
+  border: 1px solid black; 
+}
+input {
+  display: block;
+  width: 300px;
+}
+[name="gender"]{
+  display: inline-block;
+}
+
+
+span {
+  color: red;
+}
+.gender {
+display: inline-block;
+}

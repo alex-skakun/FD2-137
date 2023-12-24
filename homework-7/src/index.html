@@ -2,9 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.scss">
   <title>Homework 7</title>
 </head>
 <body>
+  <form name="anketa" novalidate>
+    <div class="formblock">
+          <label for="name">Имя</label>
+          <div>
+            <input type="text" name="name" id="name" required placeholder="Иван">
+          </div>
 
+    </div>
+    <div class="formblock">
+          <label for="surName">Фамилия</label>
+          <div>
+            <input type="text" name="surName" id="surName" required placeholder="Иванов">
+          </div>
+
+    </div>
+    <div class="formblock">
+          <label for="fatherName">Отчество</label>
+          <div>
+             <input type="text" name="fatherName" id="fatherName" required placeholder="Иванович">
+          </div>
+    </div>
+    <div class="formblock">
+          <label for="age">Возраст</label>
+          <div>
+            <input type="text" name="age" id="age" required placeholder="25">
+          </div>
+
+    </div>
+    <div class="formblock">
+          <label for="gender">Пол</label>
+          <div>
+          <input type="radio" name="gender" value="Мужчина" > <p class="gender">Мужчина</p>
+          <input type="radio" name="gender" checked value="Женщина"><p class="gender">Женщина</p>
+          </div>
+    </div>
+    <button type="submit">отправить</button>
+  </form>
+  <div class="output">
+
+  </div>
 </body>
 </html>
