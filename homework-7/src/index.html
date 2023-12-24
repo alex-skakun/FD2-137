@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework 7</title>
 </head>
+
 <body>
 
+  <form name="userData" novalidate class="main">
+    <h2> Анкета пользователя</h2>
+
+    <div class="form-row">
+      <label>Имя</label>
+      <input type="text" name="firstName" placeholder="Введите ваше имя">
+    </div>
+    <label id="error-firstName" class="error">*поле обязательно для заполнения</label>
+
+    <div class="form-row">
+      <label>Фамилия</label>
+      <input type="text" name="lastName" placeholder="Введите вашу фамимлию">
+    </div>
+    <label id="error-lastName" class="error">*поле обязательно для заполнения</label>
+
+    <div class="form-row">
+      <label>Отчество</label>
+      <input type="text" name="middleName" placeholder="Введите ваше отчество">
+    </div>
+    <label id="error-middleName" class="error">*поле обязательно для заполнения</label>
+
+    <div class="form-row">
+      <label>Возраст</label>
+      <input type="text" name="age" placeholder="Введите ваш возраст">
+    </div>
+    <label id="error-age" class="error">*диапазон значений 0-150 лет</label>
+
+    <div class="gender">
+      <label class="caption">Пол</label>
+
+      <div>
+        <div class="age-radio">
+          <label>
+            <input type="radio" name="gender" value="Мужчина" checked>
+            Мужчина
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="radio" name="gender" value="Женщина">
+            Женщина
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit">Отправить</button>
+    </div>
+
+    <div id="user-data">
+    </div>
+
+  </form>
 </body>
+
 </html>

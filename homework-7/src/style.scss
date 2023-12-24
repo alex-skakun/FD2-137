@@ -1,3 +1,59 @@
 html {
   font-family: sans-serif;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+  input {
+    width: 20%;
+    //margin: 10px 10px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: row;
+
+    label {
+      padding: .5em 1em .5em 0;
+      flex-basis: 6%;
+    }
+
+  }
+
+  .error {
+    color: red;
+    margin-bottom: 20px;
+    visibility: hidden;
+  }
+
+  .gender {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-bottom: 20px;
+
+    .caption {
+      flex-basis: 7%;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+      }
+    }
+
+
+  }
+
+
+}
