@@ -1,4 +1,4 @@
-class AsyncArray extends Array{
+class AsyncArray extends Array {
   serialMap(transformFn) {
     let promise = Promise.resolve(new AsyncArray(this.length));
 
@@ -39,3 +39,17 @@ class AsyncArray extends Array{
     return result;
   }
 }
+
+const transformFn = (el) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(el + 2);
+      console.log(el + 2);
+    }, 2000);
+  });
+
+const asyncArray = new AsyncArray(1, 2, 3);
+
+asyncArray.serialMapWithAwait(transformFn).then((res) => {
+  console.log(res);
+});
