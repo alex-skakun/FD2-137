@@ -1,3 +1,41 @@
 html {
   font-family: sans-serif;
 }
+
+body {
+  margin: 40px;
+  font-size: 24px;
+}
+
+.data {
+  margin: 30px 0;
+
+  label {
+    display: grid;
+    grid-template-columns: 150px 400px;
+  }
+  
+}
+.data_input_radio{
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: 150px 400px;
+  .input_type_radio{
+    display: block;
+  }
+
+}
+
+footer{
+  margin: 30px 0;
+}
+
+
+button{
+  width: 150px;
+  height: 50px;
+  font-size: 24px;
+}
+li{
+  color: red;
+}

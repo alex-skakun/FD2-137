@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework 7</title>
 </head>
-<body>
 
+<body>
+  <div id="main">
+    <form novalidate name="questionnaire">
+      <div class="data">
+        <label>
+          <span>Имя</span>
+          <input type="text" name="firstName">
+        </label>
+      </div>
+      <div class="data">
+        <label>
+          <span>Фамилия</span>
+          <input type="text" name="surname">
+        </label>
+      </div>
+      <div class="data">
+        <label>
+          <span>Отчество</span>
+          <input type="text" name="patronymic" >
+        </label>
+      </div>
+      <div class="data">
+        <label>
+          <span>Возраст</span>
+          <input type="number" name="age">
+        </label>
+      </div>
+      <div class="data_input_radio">
+        <span>Пол</span>
+        <div>
+        <label class="input_type_radio">
+          <input type="radio" name="sex" value="male">
+          <span>Мужской</span>
+        </label>
+        <label class="input_type_radio">
+          <input type="radio" checked name="sex" id="female">
+          <span>Женский</span>
+        </label>
+      </div>
+      </div>
+      <footer>
+        <button type="submit">Отправить</button>
+      </footer>
+  </div>
+
+  </form>
+  </div>
 </body>
+
 </html>
