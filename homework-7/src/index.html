@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homework 7</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework-7</title>
 </head>
 <body>
-
+    <form id="Anketa" action="https://fe.it-academy.by/TestForm.php" method="POST" autocomplete="off" novalidate>
+        <div class="form-row">
+            <label class="label-item">Фамилия:</label>
+            <div>
+                <input type="text" name="lastName" required autofocus>
+                <div class="validation-error hidden"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="label-item">Имя:</label>
+            <div>
+                <input type="text" name="firstName" required>
+                <div class="validation-error hidden"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="label-item">Отчество:</label>
+            <div>
+                <input type="text" name="middleName" required>
+                <div class="validation-error hidden"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="label-item">
+                Возраст:
+            </label>
+            <div>
+                <input type="text" name="age" required>
+                <div class="validation-error hidden"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="label-item">Пол:</div>
+            <div>
+                <div>
+                    <input type="radio" name="sex" value="man"><span>мужчина</span>
+                </div>
+                <div>
+                    <input type="radio" name="sex" value="woman" checked><span>женщина</span>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <button type="submit">Отправить</button>
+        </footer>
+    </form>
+    <div id="result"></div>
 </body>
 </html>
