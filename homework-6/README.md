@@ -1,5 +1,4 @@
-Домашнее задание №6
-===================
+# Домашнее задание №6
 
 ```
 Вносите изменения в файлы:
@@ -9,6 +8,7 @@
 ```
 
 > В данном домашнем задании нельзя использовать синтаксис `async/await`!
+> k
 
 ## Задание №1
 
@@ -23,6 +23,19 @@
 #### Пример:
 
 ```javascript
+<<<<<<< HEAD
+import { AsyncArray } from './AsyncArray.mjs';
+
+const asyncTransformation = (el, index, asyncArray) =>
+  new Promise((resolve, reject) => {
+    // любое асинхронное преобразование
+  });
+const asyncArray = new AsyncArray(1, 2, 3);
+
+asyncArray.serialMap(asyncTransformation).then((result) => {
+  // result - экземпляр AsyncArray с результатами преобразований
+});
+=======
 import { AsyncArray } from './AsyncArray.js';
 
 const asyncTransformation = (el, index, asyncArray) => new Promise((
@@ -37,6 +50,7 @@ asyncArray.serialMap(asyncTransformation)
   .then(result => {
     // result - экземпляр AsyncArray с результатами преобразований
   });
+>>>>>>> d784b9de7caeab640a4864fa472a43c5343e1139
 ```
 
 ## Задание №2
@@ -45,15 +59,19 @@ asyncArray.serialMap(asyncTransformation)
 Задача данной функции создавать самодельные асинхронные функции на основе функций-генераторов.
 
 Если оригинальный синтаксис создания асинхронной функции выглядит так:
+
 ```javascript
 async function testFunction(a, b) {
-    return (await someAsyncAction(a)) + (await oneMoreAsyncAction(b));
+  return (await someAsyncAction(a)) + (await oneMoreAsyncAction(b));
 }
 ```
+
 то аналогичный самодельный вариант будет выглядеть так:
+
 ```javascript
 const testFunction = _async(function* (a, b) {
-    return (yield someAsyncAction(a)) + (yield oneMoreAsyncAction(b));
+  return (yield someAsyncAction(a)) + (yield oneMoreAsyncAction(b));
 });
 ```
+
 Самодельный вариант функции `testFunction` по принципу работы и результату не должен отличаться от оригинального.
