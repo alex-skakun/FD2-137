@@ -6,19 +6,17 @@ function _async(generatorFn) {
         const { done, value } = iterator.next(nextValue);
 
         if (value instanceof Promise) {
-          value.then(
-            (yieldResult) => {
-              if (done) {
-                resolve(yieldResult);
-              } else {
-                tick(yieldResult);
-              }
-            },
-            reject,
-          );
-        } else {
-          tick(value);
+          value.then((yieldResult) => {
+            if (done) {
+              resolve(yieldResult);
+            } else {
+              tick(yieldResult);
+            }
+          }, reject);
         }
+        //  else {
+        //   tick(value);
+        // }
       };
 
       tick();
@@ -26,9 +24,25 @@ function _async(generatorFn) {
   };
 }
 
+const someAsyncAction = (el) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(el * 2), 1 * 1000);
+  });
+};
 
-const testFn = _async(function* (a, b, c) {
+const oneMoreAsyncAction = (el) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(el * 2), 2 * 1000);
+  });
+};
 
+const testFunction = _async(function* (a, b, c) {
+  return (
+    ((yield someAsyncAction(a)) + (yield oneMoreAsyncAction(b))) /
+    (yield oneMoreAsyncAction(c))
+  );
 });
 
-testFn(1, 4, 5);
+testFunction(1, 4, 5)
+
+
