@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework 7</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form novalidate name="validateForm">
+      <fieldset>
+        <div>
+          <label>
+            <span>Имя</span>
+            <input
+              type="text"
+              required
+              name="customerName"
+              autocomplete="given-name"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Фамилия</span>
+            <input
+              type="text"
+              required
+              name="surmame"
+              autocomplete="family-name"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Отчество</span>
+            <input
+              type="text"
+              required
+              name="middle-name"
+              autocomplete="name"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Возраст</span>
+            <input type="number" required name="age" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span>Пол</span>
+            <figure>
+              <figcaption>
+                <div>
+                  <input
+                    type="radio"
+                    checked
+                    required
+                    name="gender"
+                    value="man"
+                  />
+                  <span>Мужчина</span>
+                </div>
+                <div>
+                  <input type="radio" required name="gender" value="women" />
+                  <span>Женщина</span>
+                </div>
+              </figcaption>
+            </figure>
+          </label>
+        </div>
+      </fieldset>
+      <footer>
+        <button type="submit">Заказать</button>
+      </footer>
+    </form>
+  </body>
 </html>

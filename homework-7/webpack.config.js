@@ -15,7 +15,7 @@ module.exports = (_env, args) => {
     },
     output: {
       clean: true,
-      path: resolve(__dirname, '../dist/homework-7'),
+      path: resolve(__dirname, '../homework-7/dist'),
       filename: '[name].[contenthash].js'
     },
     resolve: {
