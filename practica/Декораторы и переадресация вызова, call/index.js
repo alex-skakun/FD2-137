@@ -30,8 +30,6 @@
 // alert(slow(2)); // slow(2) кешируем
 // alert("Again: " + slow(2)); // возвращаем из кеша
 
-
-
 // let worker = {
 //   someMethod() {
 //     return 1;
@@ -59,7 +57,6 @@
 
 // alert( worker.slow(2) ); // работает
 // alert( worker.slow(2) ); // работает, не вызывая первоначальную функцию (кешируется)
-
 
 // сделаем worker.slow кеширующим
 // let worker = {
@@ -93,9 +90,6 @@
 
 // alert( worker.slow(2) ); // Ой! Ошибка: не удаётся прочитать свойство 'someMethod' из 'undefined'
 
-
-
-
 // let worker = {
 //   someMethod() {
 //     return 1;
@@ -124,36 +118,77 @@
 // alert( worker.slow(2) ); // работает
 // alert( worker.slow(2) ); // работает, не вызывая первоначальную функцию (кешируется)
 
+// let worker = {
+//   slow(min, max) {
+//     alert(`Called with ${min},${max}`);
+//     return min + max;
+//   }
+// };
+
+// function cachingDecorator(func, hash) {
+//   let cache = new Map();
+//   return function() {
+//     let key = hash(arguments); // (*)
+//     if (cache.has(key)) {
+//       return cache.get(key);
+//     }
+
+//     let result = func.call(this, ...arguments); // (**)
+
+//     cache.set(key, result);
+//     return result;
+//   };
+// }
+
+// function hash(args) {
+//   return args[0] + ',' + args[1];
+// }
+
+// worker.slow = cachingDecorator(worker.slow, hash);
+
+// alert( worker.slow(3, 5) ); // работает
+// alert( "Again " + worker.slow(3, 5) ); // аналогично (из кеша)
 
 
 
-let worker = {
-  slow(min, max) {
-    alert(`Called with ${min},${max}`);
-    return min + max;
-  }
-};
 
-function cachingDecorator(func, hash) {
-  let cache = new Map();
+// function work(a, b) {
+//   alert(a + b); // произвольная функция или метод
+// }
+
+// work = spy(work);
+
+// work(1, 2); // 3
+// work(4, 5); // 9
+
+// for (let args of work.calls) {
+//   alert("call:" + args.join()); // "call:1,2", "call:4,5"
+// }
+
+// function spy(func) {
+//   function wrapper(...args) {
+//     // мы используем ...args вместо arguments для хранения "реального" массива в wrapper.calls
+//     wrapper.calls.push(args);
+//     return func.apply(this, args);
+//   }
+
+//   wrapper.calls = [];
+
+//   return wrapper;
+// }
+
+
+
+
+
+function delay(f, ms) {
+
   return function() {
-    let key = hash(arguments); // (*)
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-
-    let result = func.call(this, ...arguments); // (**)
-
-    cache.set(key, result);
-    return result;
+    setTimeout(() => f.apply(this, arguments), ms);
   };
+
 }
 
-function hash(args) {
-  return args[0] + ',' + args[1];
-}
+let f1000 = delay(alert, 1000);
 
-worker.slow = cachingDecorator(worker.slow, hash);
-
-alert( worker.slow(3, 5) ); // работает
-alert( "Again " + worker.slow(3, 5) ); // аналогично (из кеша)
+f1000("test"); // показывает "test" после 1000 мс

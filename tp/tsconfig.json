@@ -13,6 +13,6 @@
             "DOM.Iterable"
         ]
     },
-    "include": ["src"],
+    "include": ["validators"],
     "exclude": ["node_modules"]
 }

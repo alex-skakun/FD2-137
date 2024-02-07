@@ -6,7 +6,7 @@ module.exports = (_, flags) => {
   const isProd = flags.mode === "production";
   return {
     mode: isProd ? "production" : "development",
-    context: resolve(cwd(), "./src"),
+    context: resolve(cwd(), "./validators"),
     devtool: "source-map",
     entry: {
       main: "./index",
