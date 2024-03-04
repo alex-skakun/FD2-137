@@ -13,6 +13,7 @@ interface PizzaOrder {
 
 const pizzaOrderValidator = new FormValidator<PizzaOrder>({
   pizzas: nonEmptyArray,
+  addons: nonEmptyArray,
   paymentType: requiredText,
   customerName: [
     requiredText,

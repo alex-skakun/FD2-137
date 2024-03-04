@@ -149,9 +149,6 @@
 // alert( worker.slow(3, 5) ); // работает
 // alert( "Again " + worker.slow(3, 5) ); // аналогично (из кеша)
 
-
-
-
 // function work(a, b) {
 //   alert(a + b); // произвольная функция или метод
 // }
@@ -177,18 +174,73 @@
 //   return wrapper;
 // }
 
+// function delay(f, ms) {
 
+//   return function() {
+//     setTimeout(() => f.apply(this, arguments), ms);
+//   };
 
+// }
 
+// let f1000 = delay(alert, 1000);
 
-function delay(f, ms) {
+// f1000("test"); // показывает "test" после 1000 мс
 
-  return function() {
-    setTimeout(() => f.apply(this, arguments), ms);
-  };
+// let f = debounce(console.log, 2000);
 
+// f("a");
+// setTimeout( () => f("b"), 200);
+// setTimeout( () => f("c"), 500);
+
+// // Обёрнутая в debounce функция ждёт 1000 мс после последнего вызова, а затем запускает: alert("c")
+
+// function debounce(func, ms) {
+//   let timeout;
+//   return function() {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => func.apply(this, arguments), ms);
+//   };
+// }
+
+function f(a) {
+  console.log(a);
 }
 
-let f1000 = delay(alert, 1000);
+// f1000 передаёт вызовы f максимум раз в 1000 мс
+let f1000 = throttle(f, 1000);
 
-f1000("test"); // показывает "test" после 1000 мс
+f1000(1); // показывает 1
+f1000(2); // (ограничение, 1000 мс ещё нет)
+f1000(3); // (ограничение, 1000 мс ещё нет)
+
+// когда 1000 мс истекли ...
+// ...выводим 3, промежуточное значение 2 было проигнорировано
+
+function throttle(func, ms) {
+  let isThrottled = false,
+    savedArgs,
+    savedThis;
+
+  function wrapper() {
+    if (isThrottled) {
+      // (2)
+      savedArgs = arguments;
+      savedThis = this;
+      return;
+    }
+
+    func.apply(this, arguments); // (1)
+
+    isThrottled = true;
+
+    setTimeout(function () {
+      isThrottled = false; // (3)
+      if (savedArgs) {
+        wrapper.apply(savedThis, savedArgs);
+        savedArgs = savedThis = null;
+      }
+    }, ms);
+  }
+
+  return wrapper;
+}
