@@ -5,37 +5,35 @@ import "./variables.scss";
 import { FormValidator } from "./FormValidator";
 import { maxLength, nonEmptyArray, requiredText } from "./validators";
 
-const validateForm = document.forms.namedItem("pizzaOrder");
+const SendForm = document.forms.namedItem("validateForm");
 
-// interface PizzaOrder {
-//   pizzas: string[];
-//   addons: string[];
-//   paymentType: string;
-//   customerName: string;
-//   shippingAddress: string;
-// }
+interface FormData {
+  customerName: string;
+  surname: string;
+  middleName: string;
+  age: string;
+  gender: string;
+}
 
-// const pizzaOrderValidator = new FormValidator<PizzaOrder>({
-//   pizzas: nonEmptyArray,
-//   addons: nonEmptyArray,
-//   paymentType: requiredText,
-//   customerName: [requiredText, maxLength(100)],
-//   shippingAddress: [requiredText, maxLength(200)],
-// });
+const validateSendForm = new FormValidator<FormData>({
+  customerName: [nonEmptyArray, requiredText, maxLength(100)],
+  surname: [nonEmptyArray, requiredText, maxLength(100)],
+  middleName: [nonEmptyArray, requiredText, maxLength(100)],
+  age: [nonEmptyArray, maxLength(100)],
+  gender:[requiredText],
+});
 
-// validateForm?.addEventListener("submit", (event) => {
-//   event.preventDefault();
+SendForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-//   const formData = new FormData(validateForm);
-//   const pizzaOrder: PizzaOrder = {
-//     pizzas: formData.getAll("pizza") as string[],
-//     addons: formData.getAll("addon") as string[],
-//     paymentType: String(formData.get("paymentType")),
-//     customerName: String(formData.get("customerName")).trim(),
-//     shippingAddress: String(formData.get("shippingAddress")).trim(),
-//   };
+  const formData = new FormData(SendForm);
+  const formPersonal: FormData = {
+    customerName: String(formData.get("customerName")).trim(),
+    surname: String(formData.get("surname")).trim(),
+    middleName: String(formData.get("middleName")).trim(),
+    age: String(formData.get("age")).trim(),
+    gender: String(formData.get("gender")),
+  };
 
-//   const errors = pizzaOrderValidator.validate(pizzaOrder);
-
-//   console.log(errors);
-// });
+  validateSendForm.validate(formPersonal);
+});

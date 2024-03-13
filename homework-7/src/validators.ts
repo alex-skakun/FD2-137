@@ -1,6 +1,6 @@
-import { ValidatorFunction } from './ValidatorFunction';
+import { ValidatorFunction } from "./ValidatorFunction";
 
-export const nonEmptyArray: ValidatorFunction<unknown[]> = (value) => {
+export const nonEmptyArray: ValidatorFunction<string> = (value) => {
   return value.length ? null : { nonEmptyArray: true };
 };
 
@@ -8,13 +8,17 @@ export const requiredText: ValidatorFunction<string> = (value) => {
   return value.trim().length ? null : { requiredText: true };
 };
 
-export const maxLength: (maxLength: number) => ValidatorFunction<string> = (maxLength) => {
+export const maxLength: (maxLength: number) => ValidatorFunction<string> = (
+  maxLength
+) => {
   return (value) => {
-    return value.length <= maxLength ? null : {
-      maxLength: {
-        limitLength: maxLength,
-        actualLength: value.length
-      },
-    };
+    return value.length <= maxLength
+      ? null
+      : {
+          maxLength: {
+            limitLength: maxLength,
+            actualLength: value.length,
+          },
+        };
   };
 };

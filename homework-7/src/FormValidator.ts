@@ -2,6 +2,7 @@ import { FormValidatorConfiguration } from "./FormValidatorConfiguration";
 import { ValidatorFunction } from "./ValidatorFunction";
 import { composeValidators } from "./composeValidators";
 import { ValidatorResult } from "./ValidatorResult";
+import { createElementForm } from "./createElementForm";
 
 export type FormValidateResult<Data extends object> = Partial<{
   [P in keyof Data]: NonNullable<ValidatorResult>;
@@ -23,8 +24,9 @@ export class FormValidator<Data extends object> {
     }
   }
 
-  validate(data: Data): FormValidateResult<Data> | null {
+  validate(data: Data): FormValidateResult<Data> {
     const errors: FormValidateResult<Data>[] = [];
+    const validateForm: string[] = [];
 
     for (const [propertyName, value] of Object.entries(data)) {
       const validator = this.#validationMap.get(propertyName);
@@ -34,10 +36,16 @@ export class FormValidator<Data extends object> {
 
         if (result) {
           errors.push({ [propertyName]: result } as FormValidateResult<Data>);
+        } else {
+          validateForm.push(value);
         }
       }
     }
 
-    return errors.length ? Object.assign({}, ...errors) : null;
+    validateForm.push(" ");
+
+    return errors.length
+      ? Object.assign({}, ...errors)
+      : createElementForm(...validateForm);
   }
 }

@@ -7,7 +7,7 @@
   </head>
   <body>
     <form novalidate name="validateForm">
-      <fieldset>
+      <fieldset id = 'form'>
         <div>
           <label>
             <span>Имя</span>
@@ -25,7 +25,7 @@
             <input
               type="text"
               required
-              name="surmame"
+              name="surname"
               autocomplete="family-name"
             />
           </label>
@@ -33,18 +33,13 @@
         <div>
           <label>
             <span>Отчество</span>
-            <input
-              type="text"
-              required
-              name="middle-name"
-              autocomplete="name"
-            />
+            <input type="text" required name="middleName" autocomplete="name" />
           </label>
         </div>
         <div>
           <label>
             <span>Возраст</span>
-            <input type="number" required name="age" />
+            <input type="text" required name="age" />
           </label>
         </div>
         <div>
@@ -73,12 +68,6 @@
         <footer>
           <button type="submit">Отправить</button>
         </footer>
-        <section>
-          <div>ФИО:</div>
-          <div>Возраст:</div>
-          <div>Пол:</div>
-          <div>На пенсии:</div>
-        </section>
       </fieldset>
     </form>
   </body>

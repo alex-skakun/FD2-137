@@ -17,6 +17,11 @@ form {
       label {
         display: flex;
         justify-content: space-between;
+
+        & > figure {
+          flex: 0 1 174px;
+          margin: 0;
+        }
       }
     }
 
@@ -30,26 +35,15 @@ form {
       }
     }
 
-    & > div:last-of-type {
-      display: flex;
-      label {
-        flex: 0 1 183px;
-      }
-
-      div {
-        margin: 5px 0;
-      }
-      figure {
-        margin: 0;
-      }
-    }
-
     footer {
       margin-left: 95px;
     }
-
-    section {
-      display: none;
+    .wrapperWithData {
+      list-style: none;
+      & > li:nth-of-type(-n + 3) {
+        display: inline;
+        margin-right: 5px;
+      }
     }
   }
 }
